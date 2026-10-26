@@ -55,7 +55,7 @@ class EndToEndTest {
             if (LabelParser.parse(text, engine.knownBoardTypes).serial == board.serial) correct++
         }
         val accuracy = correct.toDouble() / names.size
-        println("OCR serial accuracy on ${names.size} demo photos: $accuracy")
+        android.util.Log.i("PCBTEST", "OCR serial accuracy on ${names.size} demo photos: $accuracy")
         assertTrue("OCR accuracy $accuracy below 0.9", accuracy >= 0.9)
     }
 
@@ -153,14 +153,14 @@ class EndToEndTest {
             }
             val text = com.google.gson.JsonParser.parseString(rec.finalResult).asJsonObject.get("text").asString
             rec.close()
-            println("Vosk heard: '$text'")
+            android.util.Log.i("PCBTEST", "Vosk heard: '$text'")
             val words = text.lowercase().split(" ").toSet()
             o.getAsJsonArray("keywords").forEach { k -> total++; if (k.asString in words) hits++ }
             val p = engine.fault.predictProba(text)
             if (engine.fault.classes()[com.pcbrepair.assistant.core.FaultClassifier.argmax(p)] == o.get("fault").asString) correct++
         }
         m.close()
-        println("Vosk keyword recall $hits/$total, faults correct $correct/${cases.size()}")
+        android.util.Log.i("PCBTEST", "Vosk keyword recall $hits/$total, faults correct $correct/${cases.size()}")
         assertTrue("keyword recall $hits/$total", hits.toDouble() / total >= 0.5)
         assertTrue("faults correct $correct/${cases.size()}", correct >= 2)
     }

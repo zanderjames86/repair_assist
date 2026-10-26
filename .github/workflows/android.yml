@@ -117,11 +117,12 @@ jobs:
             adb shell am instrument -w -r com.pcbrepair.assistant.test/androidx.test.runner.AndroidJUnitRunner | tee instrument.txt
             adb exec-out screencap -p > screen.png || true
             adb logcat -d -t 3000 > logcat.txt || true
+            adb logcat -d -s PCBTEST:I > results.txt || true
             grep -q "OK (" instrument.txt
       - name: Publish emulator results to the ci-logs branch
         if: always()
         run: |
-          mkdir -p /tmp/out && cp instrument.txt logcat.txt /tmp/out/ 2>/dev/null || true
+          mkdir -p /tmp/out && cp instrument.txt logcat.txt results.txt /tmp/out/ 2>/dev/null || true
           echo "run ${{ github.run_id }}" > /tmp/out/run.txt
           cd /tmp/out && git init -q && git checkout -q -b ci-logs
           git -c user.name=ci -c user.email=ci@localhost add -A && git -c user.name=ci -c user.email=ci@localhost commit -qm "logs ${{ github.workflow }} ${{ github.run_id }} ${{ github.job }}"
