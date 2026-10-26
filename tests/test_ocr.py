@@ -65,3 +65,11 @@ def test_tag_is_located():
 def test_parse_label(text, expected):
     p = parse_label(text, BOARDS)
     assert (p["board_type"], p["revision"], p["serial"]) == expected
+
+
+def test_ocr_does_not_leak_thread_limit_into_the_process():
+    """Regression: a process-wide OMP_THREAD_LIMIT broke Whisper (CTranslate2) transcripts."""
+    import os
+    before = os.environ.get("OMP_THREAD_LIMIT")
+    read_text(Image.open(ROOT / "sample_images" / REG.iloc[0]["image"]))
+    assert os.environ.get("OMP_THREAD_LIMIT") == before

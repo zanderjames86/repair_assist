@@ -1,11 +1,8 @@
 """AI part 1 - OCR: read the board label from a photo (Tesseract)."""
-import os
-
-# One thread per Tesseract call: its OpenMP threading slows small images down
-# badly, especially when several photos are read in parallel.
-os.environ.setdefault("OMP_THREAD_LIMIT", "1")
-
+import contextlib
 import difflib
+import os
+import threading
 import re
 
 import numpy as np
@@ -76,16 +73,43 @@ def find_label(img: Image.Image) -> Image.Image:
     return rgb.crop((int(x0 / scale), int(y0 / scale), int(x1 / scale), int(y1 / scale)))
 
 
+_env_lock = threading.Lock()
+
+
+@contextlib.contextmanager
+def _single_thread_tesseract():
+    """Run Tesseract with one OpenMP thread: its own threading slows small
+    images down badly (and oversubscribes the CPU when photos are read in
+    parallel). The variable is set only while tesseract is launched, never
+    process-wide: Whisper's CTranslate2 engine reads the same setting when it
+    loads and produced garbage transcripts with it."""
+    with _env_lock:
+        old = os.environ.get("OMP_THREAD_LIMIT")
+        os.environ["OMP_THREAD_LIMIT"] = "1"
+        try:
+            yield
+        finally:
+            if old is None:
+                os.environ.pop("OMP_THREAD_LIMIT", None)
+            else:
+                os.environ["OMP_THREAD_LIMIT"] = old
+
+
+def _tesseract(img, config):
+    with _single_thread_tesseract():
+        return pytesseract.image_to_string(img, config=config)
+
+
 def read_text(img: Image.Image, clean: bool = True) -> str:
     """clean=True: auto-crop to the label + image cleanup before OCR."""
     if clean:
         src = preprocess(find_label(img))
-        text = pytesseract.image_to_string(src, config="--psm 6")
+        text = _tesseract(src, "--psm 6")
         if not re.search(r"S\s*[/I1L|]?\s*N\s*[:.\-]?\s*[0-9OQ]{4}", text.upper()):
             # tag not isolated (e.g. yellow tag on a yellow board): read the whole photo too
-            text += "\n" + pytesseract.image_to_string(img.convert("RGB"), config="--psm 11")
+            text += "\n" + _tesseract(img.convert("RGB"), "--psm 11")
         return text
-    return pytesseract.image_to_string(img.convert("RGB"), config="--psm 11")
+    return _tesseract(img.convert("RGB"), "--psm 11")
 
 
 def parse_label(text: str, known_boards: list[str]) -> dict:
