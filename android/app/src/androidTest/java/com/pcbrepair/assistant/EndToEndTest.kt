@@ -144,7 +144,7 @@ class EndToEndTest {
             val o = c.asJsonObject
             val wav = testAssets.open("speech/note$i.wav").use { it.readBytes() }
             val pcmStart = dataChunk(wav)
-            val rec = org.vosk.Recognizer(m, 16000.0f)
+            val rec = org.vosk.Recognizer(m, 16000.0f, VoiceRecorder.grammar(context))
             var pos = pcmStart
             while (pos < wav.size) {
                 val n = minOf(4096, wav.size - pos)

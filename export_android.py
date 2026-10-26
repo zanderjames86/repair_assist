@@ -96,6 +96,31 @@ def parity_cases(fault, outcome, hours, records):
     return {"notes": note_cases, "tabular": tab_cases}
 
 
+ELECTRONICS_WORDS = """
+zero one two three four five six seven eight nine ten twelve fifteen twenty thirty fifty hundred
+volt volts amp amps milliamp ohm ohms watt watts hertz kilohm megohm microfarad
+board circuit pcb track trace pad pads via vias pin pins lead leads leg legs joint joints solder flux
+resistor resistors capacitor capacitors diode diodes transistor transistors mosfet fet regulator regulators
+inductor coil choke transformer relay relays fuse fuses crystal oscillator chip ic ics microcontroller
+processor memory connector connectors plug socket header cable harness ribbon wire wires switch button
+led leds display screen sensor motor driver supply power ground rail rails input output signal
+short shorted open broken cracked burnt burned hot warm cold dead bad faulty failed failing damaged
+corrosion corroded rust rusty oxidation salt water moisture wet green white deposits residue
+bent loose intermittent worn missing lifted replaced replace retest tested test testing working
+voltage current resistance continuity measure measures measured reading low high zero noise ripple
+no not on off and or the a an is are was near at to of in with from under over across top bottom edge
+side left right front back near this that there it its it's after before then still now also very
+""".split()
+
+
+def speech_vocabulary(fault):
+    """Word list that constrains the on-device recogniser (Vosk) to this domain:
+    every word the fault classifier knows plus a general electronics lexicon."""
+    words = {t for t in fault.named_steps["tfidf"].vocabulary_ if " " not in t and t.isalpha()}
+    words |= set(ELECTRONICS_WORDS)
+    return sorted(words)
+
+
 def main():
     fault = joblib.load(MODELS / "fault_classifier.joblib")
     outcome = joblib.load(MODELS / "outcome_model.joblib")
@@ -115,6 +140,7 @@ def main():
     dump(export_forest(hours, classifier=False), ASSETS / "hours_rf.json")
     dump(json.loads((MODELS / "metrics.json").read_text()), ASSETS / "metrics.json")
     dump(registry.to_dict(orient="records"), ASSETS / "registry.json")
+    dump(speech_vocabulary(fault), ASSETS / "speech_vocab.json")
     parity = parity_cases(fault, outcome, hours, records)
     dump(parity, TEST_RES / "parity.json")
     DEVICE_TEST_ASSETS.mkdir(parents=True, exist_ok=True)

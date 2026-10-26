@@ -122,6 +122,16 @@ class VoiceRecorder(private val context: Context) {
     private var model: Model? = null
     private var service: SpeechService? = null
 
+    companion object {
+        /** Vosk grammar: the repair-domain word list (+ "[unk]" for anything else). */
+        fun grammar(context: Context): String {
+            val words = context.assets.open("models/speech_vocab.json").reader().use {
+                Gson().fromJson(it, Array<String>::class.java).toList()
+            }
+            return Gson().toJson(words + "[unk]")
+        }
+    }
+
     fun prepare(onReady: () -> Unit, onError: (String) -> Unit) {
         if (model != null) { onReady(); return }
         StorageService.unpack(context, "model-en-us", "model",
@@ -132,7 +142,7 @@ class VoiceRecorder(private val context: Context) {
     /** Streams text while the technician talks; [onUpdate] gets the full transcript so far. */
     fun start(onUpdate: (String) -> Unit, onError: (String) -> Unit) {
         val m = model ?: return onError("Speech model not loaded")
-        val rec = Recognizer(m, 16000.0f)
+        val rec = Recognizer(m, 16000.0f, grammar(context))
         var committed = ""
         fun join(a: String, b: String) = listOf(a, b).filter { it.isNotBlank() }.joinToString(" ")
         service = SpeechService(rec, 16000.0f).also {

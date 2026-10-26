@@ -20,6 +20,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
@@ -80,7 +81,7 @@ fun StepCard(number: Int?, title: String, modifier: Modifier = Modifier, content
 
 @Composable
 fun Metric(label: String, value: String, modifier: Modifier = Modifier, color: Color = Ink) {
-    Column(modifier) {
+    Column(modifier.semantics(mergeDescendants = true) {}) {
         Text(label, fontSize = 12.sp, color = Ink2)
         Text(value, fontSize = 22.sp, color = color, fontWeight = FontWeight.Medium)
     }
