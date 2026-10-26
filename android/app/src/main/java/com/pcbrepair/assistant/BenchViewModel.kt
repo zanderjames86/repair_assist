@@ -40,31 +40,44 @@ data class JobCard(
 
 class BenchViewModel(app: Application) : AndroidViewModel(app) {
 
-    var engine by mutableStateOf<Engine?>(null); private set
-    var loadError by mutableStateOf<String?>(null); private set
+    var engine by mutableStateOf<Engine?>(null)
+
+        private set
+    var loadError by mutableStateOf<String?>(null)
+        private set
     private var detector: PartDetector? = null
-    var detectorAvailable by mutableStateOf(false); private set
+    var detectorAvailable by mutableStateOf(false)
+        private set
     private val labelReader = LabelReader()
     val voice = VoiceRecorder(app)
 
     // Step 1: photo + OCR
-    var photo by mutableStateOf<Bitmap?>(null); private set
-    var photoName by mutableStateOf(""); private set
-    var ocrBusy by mutableStateOf(false); private set
-    var ocrText by mutableStateOf(""); private set
-    var label by mutableStateOf<LabelParser.Label?>(null); private set
+    var photo by mutableStateOf<Bitmap?>(null)
+        private set
+    var photoName by mutableStateOf("")
+        private set
+    var ocrBusy by mutableStateOf(false)
+        private set
+    var ocrText by mutableStateOf("")
+        private set
+    var label by mutableStateOf<LabelParser.Label?>(null)
+        private set
 
     // Step 2: board
     var serial by mutableStateOf<String?>(null)
 
     // Step 3: parts
-    var partsBusy by mutableStateOf(false); private set
-    var parts by mutableStateOf<List<Part>>(emptyList()); private set
-    var partsMs by mutableStateOf(0L); private set
+    var partsBusy by mutableStateOf(false)
+        private set
+    var parts by mutableStateOf<List<Part>>(emptyList())
+        private set
+    var partsMs by mutableStateOf(0L)
+        private set
 
     // Step 4: voice note
     var note by mutableStateOf("")
-    var recording by mutableStateOf(false); private set
+    var recording by mutableStateOf(false)
+        private set
     var speechStatus by mutableStateOf("")
 
     val log = mutableStateListOf<JobCard>()

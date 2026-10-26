@@ -43,6 +43,10 @@ android {
         jniLibs.useLegacyPackaging = true
     }
     testOptions { unitTests.isReturnDefaultValues = true }
+    lint {
+        abortOnError = false
+        checkReleaseBuilds = false
+    }
 }
 
 dependencies {

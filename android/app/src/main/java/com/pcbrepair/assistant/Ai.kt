@@ -110,7 +110,7 @@ class PartDetector private constructor(
                 val nc = dims[1].toInt() - 4
                 val n = dims[2].toInt()
                 return YoloDecoder.decode(flat, nc, n, lb, bitmap.width, bitmap.height, scoreThreshold, iou)
-                    .map { Part(names.getOrElse(it.classId) { "class ${it.classId}" }, it.score, it) }
+                    .map { d -> Part(names.getOrElse(d.classId) { i -> "class $i" }, d.score, d) }
             }
         }
     }
