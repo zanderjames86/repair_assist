@@ -44,9 +44,9 @@ jobs:
           du -sh android/app/src/main/assets/model-en-us
 
       - name: JVM unit tests (model parity, OCR parser, YOLO decoding)
-        run: gradle -p android testDebugUnitTest --stacktrace
+        run: set -o pipefail; gradle -p android testDebugUnitTest --stacktrace 2>&1 | tee -a ci.log
       - name: Build APKs
-        run: gradle -p android assembleDebug assembleDebugAndroidTest assembleRelease --stacktrace
+        run: set -o pipefail; gradle -p android assembleDebug assembleDebugAndroidTest assembleRelease 2>&1 | tee -a ci.log
 
       - name: Check APK has no network permission
         run: |
@@ -55,6 +55,16 @@ jobs:
           ! grep -q "android.permission.INTERNET" perms.txt
           ls -la android/app/build/outputs/apk/release/
 
+      - name: Publish failure log to the ci-logs branch
+        if: failure()
+        run: |
+          grep -E "^e: |error:|What went wrong|FAILED|Exception|> Task .* FAILED" ci.log | head -40 | while IFS= read -r l; do echo "::error::$l"; done || true
+          mkdir -p /tmp/out && cp ci.log /tmp/out/ 2>/dev/null || true
+          cp -r android/app/build/test-results /tmp/out/ 2>/dev/null || true
+          cp instrument.txt logcat.txt /tmp/out/ 2>/dev/null || true
+          cd /tmp/out && git init -q && git checkout -q -b ci-logs
+          git -c user.name=ci -c user.email=ci@localhost add -A && git -c user.name=ci -c user.email=ci@localhost commit -qm "logs ${{ github.workflow }} ${{ github.run_id }} ${{ github.job }}"
+          git push -f "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}" ci-logs:ci-logs-${{ github.job }}
       - name: Upload test reports
         if: always()
         uses: actions/upload-artifact@v4
@@ -98,7 +108,18 @@ jobs:
             adb install -r apks/androidTest/debug/app-debug-androidTest.apk
             adb shell am instrument -w -r com.pcbrepair.assistant.test/androidx.test.runner.AndroidJUnitRunner | tee instrument.txt
             adb exec-out screencap -p > screen.png || true
+            adb logcat -d -t 3000 > logcat.txt || true
             grep -q "OK (" instrument.txt
+      - name: Publish failure log to the ci-logs branch
+        if: failure()
+        run: |
+          grep -E "^e: |error:|What went wrong|FAILED|Exception|> Task .* FAILED" ci.log | head -40 | while IFS= read -r l; do echo "::error::$l"; done || true
+          mkdir -p /tmp/out && cp ci.log /tmp/out/ 2>/dev/null || true
+          cp -r android/app/build/test-results /tmp/out/ 2>/dev/null || true
+          cp instrument.txt logcat.txt /tmp/out/ 2>/dev/null || true
+          cd /tmp/out && git init -q && git checkout -q -b ci-logs
+          git -c user.name=ci -c user.email=ci@localhost add -A && git -c user.name=ci -c user.email=ci@localhost commit -qm "logs ${{ github.workflow }} ${{ github.run_id }} ${{ github.job }}"
+          git push -f "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}" ci-logs:ci-logs-${{ github.job }}
       - if: always()
         uses: actions/upload-artifact@v4
         with:
