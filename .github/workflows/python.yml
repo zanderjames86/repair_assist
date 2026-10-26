@@ -17,9 +17,9 @@ jobs:
       - uses: actions/setup-python@v5
         with: { python-version: "3.12", cache: pip }
       - run: sudo apt-get install -y tesseract-ocr
-      - run: pip install -r requirements.txt pytest
+      - run: pip install -r requirements.txt pytest pytest-timeout
       - name: Tests (data, ML models, OCR on demo photos, Android export parity, Streamlit app)
-        run: set -o pipefail; pytest -v --junitxml=pytest-report.xml 2>&1 | tee ci.log
+        run: set -o pipefail; pytest -v --timeout=600 --junitxml=pytest-report.xml 2>&1 | tee ci.log
       - name: Publish failure log to the ci-logs branch
         if: failure()
         run: |

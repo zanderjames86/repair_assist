@@ -1,5 +1,5 @@
 """OCR reads the asset tag on the 50 real board photos (Tesseract pipeline)."""
-from concurrent.futures import ProcessPoolExecutor
+from concurrent.futures import ThreadPoolExecutor
 
 import pandas as pd
 import pytest
@@ -21,7 +21,7 @@ def _read(row):
 @pytest.fixture(scope="module")
 def results():
     rows = REG.to_dict("records")
-    with ProcessPoolExecutor() as ex:
+    with ThreadPoolExecutor(4) as ex:   # tesseract runs as a subprocess, threads are enough
         return list(zip(rows, ex.map(_read, rows)))
 
 
