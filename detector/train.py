@@ -32,6 +32,13 @@ def main():
     args = ap.parse_args()
 
     from ultralytics import YOLO
+    from ultralytics.utils import nms
+
+    # Dense boards carry up to ~900 parts. Ultralytics' defaults (300 boxes per
+    # image, ~0.05 s NMS budget per image) truncate detections on CPU and
+    # under-report mAP, so evaluation gets a larger box cap and NMS time budget.
+    _nms = nms.non_max_suppression
+    nms.non_max_suppression = lambda *a, **k: _nms(*a, **{**k, "max_time_img": 2.0})
 
     data_yaml = DATASET / "data.yaml"
     cfg = yaml.safe_load(data_yaml.read_text())
@@ -49,7 +56,7 @@ def main():
         data=str(run_yaml), epochs=args.epochs, imgsz=args.imgsz, batch=args.batch, device="cpu",
         workers=2, patience=20, time=args.hours, plots=False, project=str(HERE / "runs"), name="parts",
         exist_ok=True, seed=0, deterministic=True, fliplr=0.5, flipud=0.5, degrees=5, close_mosaic=5,
-        fraction=0.15 if args.smoke else 1.0, val=True, amp=False,
+        fraction=0.15 if args.smoke else 1.0, val=True, amp=False, max_det=1000,
     )
     train_minutes = (time.time() - t0) / 60
     best = HERE / "runs" / "parts" / "weights" / "best.pt"
@@ -57,7 +64,7 @@ def main():
 
     # Honest final score: the 22 test boards were never used for training or model selection
     m = model.val(data=str(run_yaml), split="test", imgsz=args.imgsz, batch=args.batch, device="cpu",
-                  plots=False, project=str(HERE / "runs"), name="test", exist_ok=True)
+                  plots=False, project=str(HERE / "runs"), name="test", exist_ok=True, max_det=1000)
     per_class = {names[c]: round(float(m.box.ap50[i]), 3) for i, c in enumerate(m.box.ap_class_index)}
 
     onnx = Path(model.export(format="onnx", imgsz=args.imgsz, opset=12, simplify=True, dynamic=False))
