@@ -14,11 +14,19 @@ for i, c in enumerate(cases[:2]):
     a = decode_audio(open(f"/tmp/n{i}.wav", "rb").read())
     print(f"note{i}: {len(a)/16000:.1f}s peak {np.abs(a).max():.2f}")
     wavs.append(a)
-for ct in ["int8", "int8_float32", "float32"]:
+FULL = ("PCB repair note. Regulator U3, capacitor C12, connector J2, "
+        "5V rail, short to ground, corrosion, solder joint.")
+for ct in ["int8"]:
     m = WhisperModel("base.en", device="cpu", compute_type=ct)
     for vad in (True, False):
-        for prompt in (None, "PCB repair note."):
+        for prompt in (None, "PCB repair note.", FULL,
+                       "Electronics repair note about a circuit board, mentioning a regulator, capacitor, connector, short to ground or corrosion."):
             t = time.time()
             out = [" ".join(s.text for s in m.transcribe(a, language="en", beam_size=1, vad_filter=vad,
                                                           initial_prompt=prompt)[0]).strip() for a in wavs]
-            print(f"{ct:13s} vad={vad!s:5s} prompt={bool(prompt)!s:5s} {time.time()-t:4.1f}s  {out}")
+            print(f"{ct:13s} vad={vad!s:5s} prompt={(prompt or "-")[:20]!s:20s} {time.time()-t:4.1f}s  {out}")
+
+from speech_utils import load_model, transcribe
+m = load_model()
+for i in range(2):
+    print("speech_utils.transcribe:", transcribe(m, open(f"/tmp/n{i}.wav", "rb").read()))
