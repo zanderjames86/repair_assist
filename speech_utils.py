@@ -1,5 +1,6 @@
 """AI part 2 - Speech-to-text: transcribe the technician's voice note
 with a pretrained Whisper model (faster-whisper, int8 on CPU)."""
+import re
 import subprocess
 
 import numpy as np
@@ -23,10 +24,17 @@ def decode_audio(audio_bytes: bytes) -> np.ndarray:
     return np.frombuffer(out, np.int16).astype(np.float32) / 32768.0
 
 
-def transcribe(model, audio_bytes: bytes) -> str:
-    segments, _ = model.transcribe(
-        decode_audio(audio_bytes), language="en", beam_size=1, vad_filter=True,
-        # Vocabulary hint: helps Whisper spell component references correctly
-        initial_prompt="PCB repair note. Regulator U3, capacitor C12, connector J2, "
-                       "5V rail, short to ground, corrosion, solder joint.")
+def _run(model, audio, prompt):
+    segments, _ = model.transcribe(audio, language="en", beam_size=1, vad_filter=True, initial_prompt=prompt)
     return " ".join(s.text.strip() for s in segments).strip()
+
+
+def transcribe(model, audio_bytes: bytes) -> str:
+    audio = decode_audio(audio_bytes)
+    # A short, plain prompt nudges the vocabulary. Long prompts full of part
+    # references (U3, C12, 5V) made Whisper emit "!!!!" in testing, so if the
+    # result has no words at all, retry without any prompt.
+    text = _run(model, audio, "Electronics repair note about a circuit board.")
+    if not re.search(r"[A-Za-z]{2,}", text):
+        text = _run(model, audio, None)
+    return text

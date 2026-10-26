@@ -16,7 +16,8 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with: { python-version: "3.12", cache: pip }
-      - run: sudo apt-get install -y tesseract-ocr espeak-ng ffmpeg
+      - run: sudo apt-get update -qq && sudo apt-get install -y -qq tesseract-ocr espeak-ng ffmpeg < /dev/null
+        timeout-minutes: 10
       - run: pip install -r requirements.txt pytest pytest-timeout
       - name: Tests (data, ML models, OCR on demo photos, Android export parity, Streamlit app)
         run: set -o pipefail; pytest -v --timeout=600 --junitxml=pytest-report.xml 2>&1 | tee ci.log
