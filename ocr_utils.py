@@ -1,4 +1,10 @@
 """AI part 1 - OCR: read the board label from a photo (Tesseract)."""
+import os
+
+# One thread per Tesseract call: its OpenMP threading slows small images down
+# badly, especially when several photos are read in parallel.
+os.environ.setdefault("OMP_THREAD_LIMIT", "1")
+
 import difflib
 import re
 
