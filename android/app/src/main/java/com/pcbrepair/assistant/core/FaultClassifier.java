@@ -22,8 +22,20 @@ import java.util.regex.Pattern;
  */
 public final class FaultClassifier {
 
-    private static final Pattern TOKEN =
-            Pattern.compile("\\b\\w\\w+\\b", Pattern.UNICODE_CHARACTER_CLASS);
+    private static final Pattern TOKEN = tokenPattern();
+
+    /**
+     * Python's (?u)\w is Unicode-aware. On a desktop JVM that needs the
+     * UNICODE_CHARACTER_CLASS flag; Android's ICU regex engine is Unicode-aware
+     * already and rejects that flag, so fall back to the plain pattern there.
+     */
+    private static Pattern tokenPattern() {
+        try {
+            return Pattern.compile("\\b\\w\\w+\\b", Pattern.UNICODE_CHARACTER_CLASS);
+        } catch (IllegalArgumentException androidIcu) {
+            return Pattern.compile("\\b\\w\\w+\\b");
+        }
+    }
 
     static final class Json {
         String[] classes;

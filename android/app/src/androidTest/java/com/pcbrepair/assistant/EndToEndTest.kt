@@ -97,6 +97,33 @@ class EndToEndTest {
         rule.onNodeWithText("Fault classifier").assertExists()
     }
 
+    /** Same 600 parity cases as the JVM unit test, but on Android's own runtime (ICU regex etc.). */
+    @Test
+    fun onDeviceParityWithScikitLearn() {
+        val testAssets = InstrumentationRegistry.getInstrumentation().context.assets
+        val json = testAssets.open("parity.json").reader().use {
+            com.google.gson.JsonParser.parseReader(it).asJsonObject
+        }
+        val e = Engine(context)
+        var n = 0
+        for (c in json.getAsJsonArray("notes")) {
+            val o = c.asJsonObject
+            val p = e.fault.predictProba(o.get("note").asString)
+            o.getAsJsonArray("proba").forEachIndexed { k, v -> assertEquals(o.get("note").asString, v.asDouble, p[k], 1e-6) }
+            n++
+        }
+        for (c in json.getAsJsonArray("tabular")) {
+            val o = c.asJsonObject
+            val args = listOf(o.get("board_type").asString, o.get("fault_category").asString)
+            val age = o.get("age_years").asInt
+            val prev = o.get("previous_repairs").asInt
+            assertEquals(o.get("p_ber").asDouble, e.outcome.predict(args[0], args[1], age, prev), 1e-6)
+            assertEquals(o.get("hours").asDouble, e.hours.predict(args[0], args[1], age, prev), 1e-6)
+            n++
+        }
+        assertTrue(n >= 600)
+    }
+
     @Test
     fun onDeviceModelsMatchTrainingResults() {
         val e = Engine(context)

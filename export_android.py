@@ -26,6 +26,7 @@ ROOT = Path(__file__).parent
 MODELS = ROOT / "models"
 ASSETS = ROOT / "android" / "app" / "src" / "main" / "assets" / "models"
 TEST_RES = ROOT / "android" / "app" / "src" / "test" / "resources"
+DEVICE_TEST_ASSETS = ROOT / "android" / "app" / "src" / "androidTest" / "assets"
 
 
 def export_fault(pipe):
@@ -114,7 +115,10 @@ def main():
     dump(export_forest(hours, classifier=False), ASSETS / "hours_rf.json")
     dump(json.loads((MODELS / "metrics.json").read_text()), ASSETS / "metrics.json")
     dump(registry.to_dict(orient="records"), ASSETS / "registry.json")
-    dump(parity_cases(fault, outcome, hours, records), TEST_RES / "parity.json")
+    parity = parity_cases(fault, outcome, hours, records)
+    dump(parity, TEST_RES / "parity.json")
+    DEVICE_TEST_ASSETS.mkdir(parents=True, exist_ok=True)
+    dump(parity, DEVICE_TEST_ASSETS / "parity.json")    # same check, run on the emulator
 
 
 if __name__ == "__main__":
