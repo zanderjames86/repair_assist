@@ -209,7 +209,7 @@ with bench:
                           serials, index=default, placeholder="Select serial")
     board = registry.set_index("serial").loc[serial] if serial else None
     if board is not None:
-        m1, m2, m3 = st.columns(3)
+        m1, m2, m3 = st.columns([2, 1, 1])
         m1.metric("Board type", f"{board['board_type']} rev {board['revision']}")
         m2.metric("Age", f"{board['age_years']} yrs")
         m3.metric("Previous repairs", int(board["previous_repairs"]))
