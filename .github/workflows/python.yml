@@ -5,6 +5,9 @@ on:
     paths-ignore: ["android/**", "**.md"]
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 jobs:
   test:
     runs-on: ubuntu-latest
@@ -16,7 +19,14 @@ jobs:
       - run: sudo apt-get install -y tesseract-ocr
       - run: pip install -r requirements.txt pytest
       - name: Tests (data, ML models, OCR on demo photos, Android export parity, Streamlit app)
-        run: pytest -v --junitxml=pytest-report.xml
+        run: set -o pipefail; pytest -v --junitxml=pytest-report.xml 2>&1 | tee ci.log
+      - name: Publish failure log to the ci-logs branch
+        if: failure()
+        run: |
+          mkdir -p /tmp/out && cp ci.log /tmp/out/ 2>/dev/null || true
+          cd /tmp/out && git init -q && git checkout -q -b ci-logs
+          git -c user.name=ci -c user.email=ci@localhost add -A && git -c user.name=ci -c user.email=ci@localhost commit -qm "logs ${{ github.workflow }} ${{ github.run_id }} ${{ github.job }}"
+          git push -f "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}" ci-logs:ci-logs-${{ github.job }}
       - if: always()
         uses: actions/upload-artifact@v4
         with: { name: pytest-report, path: pytest-report.xml }

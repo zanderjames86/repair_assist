@@ -33,9 +33,16 @@ jobs:
           pip install torch torchvision --index-url https://download.pytorch.org/whl/cpu
           pip install ultralytics onnx onnxslim onnxruntime pytest pillow pandas
       - name: Fine-tune YOLOv8n (COCO-pretrained) on CPU
-        run: python detector/train.py --hours "${{ inputs.hours || '4.5' }}" --epochs "${{ inputs.epochs || '120' }}"
+        run: set -o pipefail; python detector/train.py --hours "${{ inputs.hours || '4.5' }}" --epochs "${{ inputs.epochs || '120' }}" 2>&1 | tee ci.log
       - name: Check the exported model
-        run: pytest -v tests/test_detector.py
+        run: set -o pipefail; pytest -v tests/test_detector.py 2>&1 | tee -a ci.log
+      - name: Publish failure log to the ci-logs branch
+        if: failure()
+        run: |
+          mkdir -p /tmp/out && cp ci.log /tmp/out/ 2>/dev/null || true
+          cd /tmp/out && git init -q && git checkout -q -b ci-logs
+          git -c user.name=ci -c user.email=ci@localhost add -A && git -c user.name=ci -c user.email=ci@localhost commit -qm "logs ${{ github.workflow }} ${{ github.run_id }} ${{ github.job }}"
+          git push -f "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}" ci-logs:ci-logs-${{ github.job }}
       - uses: actions/upload-artifact@v4
         if: always()
         with:
