@@ -55,8 +55,27 @@ fault type drive scrap decisions.
 **Part detector:** scored on 22 test boards never used for training or model selection. Full numbers are in
 `models/parts.json` and on the app's Models screen.
 
-**OCR on the 50 demo photos:** finding and cleaning the tag first reads 49/50 serials correctly,
-against 15/50 for raw OCR on the whole photo. The one miss is a yellow tag on a yellow motherboard.
+**OCR on the 50 demo photos:**
+
+| Pipeline | Serials read correctly |
+|---|---|
+| Web app: Tesseract on the whole photo | 15 / 50 (30%) |
+| Web app: find tag → crop → contrast + Otsu → Tesseract | **49 / 50 (98%)** |
+| Android: ML Kit on the device (emulator test) | **47 / 50 (94%)** |
+
+The Tesseract miss is a yellow tag on a yellow motherboard.
+
+**Speech-to-text** (4 synthesised voice notes, 23 key words; tests in CI):
+
+| Engine | Key words recognised | Faults diagnosed correctly from the transcript |
+|---|---|---|
+| Whisper base.en (web app) | 18 / 23 | 4 / 4 |
+| Vosk small-en, free vocabulary (phone) | 7 / 23 | not reached |
+| Vosk small-en + domain word list (phone, shipped) | **21 / 23** | **4 / 4** |
+
+The phone constrains Vosk to a 279-word repair vocabulary: every word the fault classifier knows plus
+an electronics lexicon. Accuracy on the robotic test voice went from 30% to 91%. The word list is built from
+the training notes, never from the test sentences.
 
 ## Data
 
@@ -92,10 +111,21 @@ Every push runs on GitHub Actions:
   * OCR label parsing, including common OCR errors.
 * **Android emulator end-to-end test:**
   * the app has no INTERNET permission;
-  * ML Kit reads at least 90% of the 50 demo tags;
+  * ML Kit reads at least 90% of the 50 demo tags (94% measured);
+  * the 600 parity cases pass again on Android's own runtime;
+  * offline speech-to-text: synthesised WAV notes → Vosk → fault classifier;
   * the detector finds parts;
   * a full job card is created through the UI and appears in the log.
 * **Build check:** the release APK is inspected to confirm it has no network permission.
+
+### Bugs the automated tests caught
+
+* Android's regex engine rejects a Java flag used in the TF-IDF tokenizer, which would have crashed the app on
+  any real device. Caught by the emulator test.
+* A PyAV release removed an argument faster-whisper relies on, which broke web voice notes. Audio is now decoded with ffmpeg.
+* A process-wide thread limit set for Tesseract made Whisper produce garbage transcripts. It's now scoped
+  to Tesseract calls, with a regression test.
+* Running Tesseract with several threads per image while reading photos in parallel caused CI timeouts.
 
 ## Install the Android app (air-gapped tablet)
 
@@ -104,7 +134,7 @@ Every push runs on GitHub Actions:
 3. On the tablet, open it from the Files app and allow "install unknown apps" for Files.
 4. The app needs no network. Grant microphone permission the first time you record a voice note.
 
-Requires Android 8.0 or later. The APK is about 150 MB because all models are bundled.
+Requires Android 8.0 or later. The APK is about 115–130 MB because every model is bundled.
 
 ## Run the web app
 
