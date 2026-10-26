@@ -1,0 +1,58 @@
+name: Train part detector
+
+on:
+  workflow_dispatch:
+    inputs:
+      hours:
+        description: "Training time budget (hours)"
+        default: "4.5"
+      epochs:
+        description: "Maximum epochs"
+        default: "120"
+  push:
+    paths: ["detector/train.py", "detector/dataset/data.yaml"]
+
+permissions:
+  contents: write
+  actions: write
+
+concurrency:
+  group: train-detector
+  cancel-in-progress: true
+
+jobs:
+  train:
+    runs-on: ubuntu-latest
+    timeout-minutes: 350
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12" }
+      - name: Install (CPU-only PyTorch)
+        run: |
+          pip install torch torchvision --index-url https://download.pytorch.org/whl/cpu
+          pip install ultralytics onnx onnxslim onnxruntime pytest pillow pandas
+      - name: Fine-tune YOLOv8n (COCO-pretrained) on CPU
+        run: python detector/train.py --hours "${{ inputs.hours || '4.5' }}" --epochs "${{ inputs.epochs || '120' }}"
+      - name: Check the exported model
+        run: pytest -v tests/test_detector.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: detector-training-run
+          path: |
+            detector/runs/parts/results.csv
+            detector/runs/parts/args.yaml
+            models/parts.json
+      - name: Commit model into web app + Android assets
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add models/parts.onnx models/parts.json android/app/src/main/assets/models/parts.onnx android/app/src/main/assets/models/parts.json
+          git commit -m "Trained part detector: $(python -c "import json;m=json.load(open('models/parts.json'))['metrics'];print(f\"mAP50 {m['map50']}, mAP50-95 {m['map50_95']}\")")"
+          git push
+      - name: Rebuild Android app and re-run Python tests with the new model
+        env: { GH_TOKEN: "${{ github.token }}" }
+        run: |
+          gh workflow run android.yml --ref ${{ github.ref_name }}
+          gh workflow run python.yml --ref ${{ github.ref_name }}

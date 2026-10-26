@@ -1,0 +1,32 @@
+{
+  "images": {
+    "train": 137,
+    "valid": 40,
+    "test": 22
+  },
+  "boxes": {
+    "Connector": 1878,
+    "Resistor": 17454,
+    "Capacitor": 15849,
+    "Transistor/Diode": 1667,
+    "IC": 2339,
+    "Switch": 150,
+    "Inductor": 105
+  },
+  "dropped": {
+    "EM": 51,
+    "Pads": 357,
+    "Test Point": 347,
+    "Unknown Unlabeled": 269
+  },
+  "classes": [
+    "Capacitor",
+    "Connector",
+    "IC",
+    "Inductor",
+    "Resistor",
+    "Switch",
+    "Transistor/Diode"
+  ],
+  "source": "Roboflow 100 printed-circuit-board v4 (CC BY 4.0)"
+}

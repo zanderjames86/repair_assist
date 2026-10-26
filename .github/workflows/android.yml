@@ -1,0 +1,125 @@
+name: Android app
+
+on:
+  push:
+    paths: ["android/**", ".github/workflows/android.yml"]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: android-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  VOSK_MODEL: vosk-model-small-en-us-0.15
+
+jobs:
+  build:
+    name: Unit tests + build APK
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with: { distribution: temurin, java-version: "17" }
+      - uses: gradle/actions/setup-gradle@v4
+        with: { gradle-version: "8.9" }
+
+      - name: Cache Vosk speech model
+        id: vosk
+        uses: actions/cache@v4
+        with:
+          path: android/app/src/main/assets/model-en-us
+          key: ${{ env.VOSK_MODEL }}-v1
+      - name: Bundle offline speech model (Vosk, Apache-2.0)
+        if: steps.vosk.outputs.cache-hit != 'true'
+        run: |
+          curl -fsSL -o /tmp/vosk.zip https://alphacephei.com/vosk/models/$VOSK_MODEL.zip
+          unzip -q /tmp/vosk.zip -d /tmp
+          mkdir -p android/app/src/main/assets/model-en-us
+          cp -r /tmp/$VOSK_MODEL/* android/app/src/main/assets/model-en-us/
+          echo "$VOSK_MODEL" > android/app/src/main/assets/model-en-us/uuid
+          du -sh android/app/src/main/assets/model-en-us
+
+      - name: JVM unit tests (model parity, OCR parser, YOLO decoding)
+        run: gradle -p android testDebugUnitTest --stacktrace
+      - name: Build APKs
+        run: gradle -p android assembleDebug assembleDebugAndroidTest assembleRelease --stacktrace
+
+      - name: Check APK has no network permission
+        run: |
+          AAPT=$(ls $ANDROID_HOME/build-tools/*/aapt | tail -1)
+          $AAPT dump permissions android/app/build/outputs/apk/release/app-release.apk | tee perms.txt
+          ! grep -q "android.permission.INTERNET" perms.txt
+          ls -la android/app/build/outputs/apk/release/
+
+      - name: Upload test reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: unit-test-report
+          path: android/app/build/reports/tests/
+      - uses: actions/upload-artifact@v4
+        with:
+          name: apks
+          path: |
+            android/app/build/outputs/apk/release/app-release.apk
+            android/app/build/outputs/apk/debug/app-debug.apk
+            android/app/build/outputs/apk/androidTest/debug/app-debug-androidTest.apk
+
+  emulator:
+    name: End-to-end test on Android emulator
+    needs: build
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with: { name: apks, path: apks }
+      - name: Enable KVM
+        run: |
+          echo 'KERNEL=="kvm", GROUP="kvm", MODE="0666", OPTIONS+="static_node=kvm"' | sudo tee /etc/udev/rules.d/99-kvm4all.rules
+          sudo udevadm control --reload-rules
+          sudo udevadm trigger --name-match=kvm
+      - name: Run instrumented tests
+        uses: reactivecircus/android-emulator-runner@v2
+        with:
+          api-level: 30
+          arch: x86_64
+          target: google_apis
+          ram-size: 4096M
+          disk-size: 6000M
+          emulator-options: -no-window -gpu swiftshader_indirect -noaudio -no-boot-anim -no-snapshot
+          disable-animations: true
+          script: |
+            adb install -r apks/debug/app-debug.apk
+            adb install -r apks/androidTest/debug/app-debug-androidTest.apk
+            adb shell am instrument -w -r com.pcbrepair.assistant.test/androidx.test.runner.AndroidJUnitRunner | tee instrument.txt
+            adb exec-out screencap -p > screen.png || true
+            grep -q "OK (" instrument.txt
+      - if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: emulator-results
+          path: |
+            instrument.txt
+            screen.png
+
+  release:
+    name: Publish APK
+    needs: [build, emulator]
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@v4
+        with: { name: apks, path: apks }
+      - run: cp apks/release/app-release.apk PCB-Repair-Assistant.apk
+      - uses: softprops/action-gh-release@v2
+        with:
+          tag_name: latest
+          name: PCB Repair Assistant (latest build)
+          make_latest: true
+          body: "Offline Android app. Install by copying the APK to the tablet over USB. No network needed."
+          files: PCB-Repair-Assistant.apk

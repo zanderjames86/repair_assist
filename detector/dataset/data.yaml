@@ -1,0 +1,12 @@
+path: /home/claude/pcb-repair-assistant/detector/dataset
+train: train/images
+val: valid/images
+test: test/images
+names:
+  0: Capacitor
+  1: Connector
+  2: IC
+  3: Inductor
+  4: Resistor
+  5: Switch
+  6: Transistor/Diode

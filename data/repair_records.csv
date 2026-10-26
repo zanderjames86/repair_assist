@@ -1,0 +1,601 @@
+job_id,board_type,age_years,previous_repairs,note,fault_category,outcome,repair_hours
+J1000,DISPLAY-DRV,8,1,"Board received from unit, 3.3V regulator output low, solder bridge between adjacent pins, dead short on the 5V rail, awaiting spare.",short_circuit,BER,4.7
+J1001,RF-COMM,10,2,"Board received from unit, Q1 drain shorted to source, will replace and retest.",short_circuit,BER,5.4
+J1002,MOTOR-DRV,1,0,"Intermittent signal, hairline crack in track, cracked solder joint on R40.",open_circuit,Repairable,2.0
+J1003,PSU-CTRL,2,1,"Electrolytic C21 bulging, high ESR, via has no continuity between layers, no continuity on the trace to the connector, will replace and retest.",open_circuit,BER,2.6
+J1004,SENSOR-IF,2,2,"Visual check complete, white crusty oxidation around the vias, U5 failed, no output on the pin, Q5 gate damaged, not switching.",component_failure,Repairable,2.8
+J1005,DISPLAY-DRV,4,0,"Initial inspection done, ripple on the supply too high, connector housing cracked, header pins worn, poor mating, will replace and retest.",connector_fault,Repairable,1.8
+J1006,MCU-MAIN,10,2,"Unit reported fault, burn mark under the shorted capacitor, near zero ohms between VCC and ground, replaced and tested ok.",short_circuit,Repairable,4.7
+J1007,SENSOR-IF,10,0,"Checked on the bench, fuse blown on the input, op amp U12 output stuck high, Q5 gate damaged, not switching, replaced and tested ok.",component_failure,Repairable,1.7
+J1008,RF-COMM,4,0,"Initial inspection done, moisture ingress, tracks eaten away, conformal coating peeled, corrosion underneath.",corrosion,BER,7.7
+J1009,PSU-CTRL,10,1,"Board received from unit, intermittent signal, hairline crack in track, no continuity on the trace to the connector, header pins worn, poor mating, replaced and tested ok.",open_circuit,Repairable,2.6
+J1010,DISPLAY-DRV,2,0,"Unit reported fault, board shows water damage and rust on the shield, green deposits on the pins, replaced and tested ok.",corrosion,BER,5.7
+J1011,DISPLAY-DRV,13,1,"Visual check complete, ribbon cable socket latch broken, pin 3 of P3 pushed back, replaced and tested ok.",connector_fault,Repairable,2.9
+J1012,MOTOR-DRV,6,1,"Board received from unit, green deposits on the pins, cracked solder joint on R40, parts ordered.",corrosion,BER,5.4
+J1013,MOTOR-DRV,5,1,"Visual check complete, visible corrosion near the connector, conformal coating peeled, corrosion underneath, passes power up test now.",corrosion,Repairable,4.6
+J1014,MOTOR-DRV,3,1,"Electrolytic C21 bulging, high ESR, D2 failed open on diode test, passes power up test now.",component_failure,Repairable,2.3
+J1015,DISPLAY-DRV,8,3,"Visual check complete, electrolytic C12 bulging, high ESR, awaiting spare.",component_failure,Repairable,3.5
+J1016,MOTOR-DRV,7,1,"Checked on the bench, no continuity on the trace to the connector, lifted pad, track broken, awaiting spare.",open_circuit,Repairable,2.9
+J1017,PSU-CTRL,3,0,"Initial inspection done, connector J4 pins bent, contact resistance high on the plug.",connector_fault,Repairable,1.4
+J1018,SENSOR-IF,6,0,"Board received from unit, cracked solder joint on R7.",open_circuit,BER,2.5
+J1019,PSU-CTRL,22,3,"Checked on the bench, contact resistance high on the plug, replaced and tested ok.",connector_fault,BER,3.2
+J1020,SENSOR-IF,12,3,"Visual check complete, connector housing cracked, pin 3 of J2 pushed back, parts ordered.",connector_fault,Repairable,2.3
+J1021,DISPLAY-DRV,4,1,"Initial inspection done, power LED off, supply dead, C33 shorted to ground, no output on the 5V rail, awaiting spare.",power_supply,Repairable,3.2
+J1022,MCU-MAIN,3,0,"Checked on the bench, loose contact in J1, dead short on the 5V rail, awaiting spare.",connector_fault,Repairable,1.6
+J1023,MCU-MAIN,3,2,"Crystal oscillator not starting, op amp U2 output stuck high, awaiting spare.",component_failure,Repairable,3.5
+J1024,MOTOR-DRV,2,2,"Checked on the bench, corroded legs on U1, green deposits on the pins, needs further testing.",corrosion,BER,6.1
+J1025,RF-COMM,3,2,"Unit reported fault, visible corrosion near the connector, conformal coating peeled, corrosion underneath, passes power up test now.",corrosion,BER,8.4
+J1026,PSU-CTRL,7,0,"Unit reported fault, near zero ohms between VCC and ground, U1 running hot, internal short suspected, dry joint found under magnification, replaced and tested ok.",short_circuit,Repairable,3.4
+J1027,RF-COMM,13,2,"Initial inspection done, R7 measures open, intermittent signal, hairline crack in track.",open_circuit,Repairable,5.5
+J1028,MOTOR-DRV,10,1,"Board received from unit, C9 shorted to ground, moisture ingress, tracks eaten away, burn mark under the shorted capacitor.",short_circuit,BER,3.8
+J1029,RF-COMM,8,2,"Checked on the bench, C12 shorted to ground, Q2 drain shorted to source, passes power up test now.",short_circuit,BER,6.9
+J1030,DISPLAY-DRV,3,1,"Contact resistance high on the plug, loose contact in J2, will replace and retest.",connector_fault,Repairable,1.9
+J1031,MOTOR-DRV,10,3,"Visual check complete, switching regulator not starting up, cable harness intermittent at the plug, will replace and retest.",power_supply,BER,4.5
+J1032,MOTOR-DRV,10,1,"Checked on the bench, dead short on the 5V rail, replaced and tested ok.",short_circuit,Repairable,4.3
+J1033,RF-COMM,6,2,"Visual check complete, C33 shorted to ground, ripple on the supply too high, replaced and tested ok.",short_circuit,Repairable,5.1
+J1034,DISPLAY-DRV,8,4,"Initial inspection done, ripple on the supply too high, passes power up test now.",power_supply,BER,4.5
+J1035,DISPLAY-DRV,3,0,"Unit reported fault, electrolytic C21 bulging, high ESR, U7 failed, no output on the pin, will replace and retest.",component_failure,Repairable,2.7
+J1036,PSU-CTRL,4,0,"Checked on the bench, pin 3 of J4 pushed back, loose contact in J1, needs further testing.",connector_fault,Repairable,1.7
+J1037,SENSOR-IF,2,0,"Unit reported fault, lifted pad, track broken, dry joint found under magnification.",open_circuit,Repairable,3.2
+J1038,DISPLAY-DRV,1,0,"Board received from unit, pin 3 of J1 pushed back, header pins worn, poor mating, replaced and tested ok.",connector_fault,Repairable,1.2
+J1039,SENSOR-IF,16,1,"Board received from unit, supply goes into current limit at power up, burn mark under the shorted capacitor, replaced and tested ok.",short_circuit,BER,4.1
+J1040,DISPLAY-DRV,8,1,"Checked on the bench, op amp U5 output stuck high, optocoupler not responding.",component_failure,BER,2.9
+J1041,PSU-CTRL,17,2,"Solder bridge between adjacent pins, C4 shorted to ground, replaced and tested ok.",short_circuit,Repairable,3.3
+J1042,DISPLAY-DRV,5,1,"Checked on the bench, optocoupler not responding, op amp U12 output stuck high, will replace and retest.",component_failure,Repairable,2.4
+J1043,PSU-CTRL,8,1,"C12 shorted to ground, replaced and tested ok.",short_circuit,Repairable,3.3
+J1044,RF-COMM,15,5,"Board received from unit, via has no continuity between layers, intermittent signal, hairline crack in track, will replace and retest.",open_circuit,BER,6.0
+J1045,SENSOR-IF,4,0,Cracked solder joint on R22.,open_circuit,Repairable,2.8
+J1046,RF-COMM,11,2,Connector housing cracked.,connector_fault,BER,3.7
+J1047,MCU-MAIN,9,1,"Board received from unit, conformal coating peeled, corrosion underneath, parts ordered.",corrosion,Repairable,6.9
+J1048,DISPLAY-DRV,5,1,"Checked on the bench, regulator U12 is hot, output drooping, Q1 drain shorted to source, input voltage present but no rail out.",power_supply,Repairable,4.1
+J1049,RF-COMM,6,1,"Initial inspection done, crystal oscillator not starting, via has no continuity between layers, needs further testing.",component_failure,Repairable,3.5
+J1050,PSU-CTRL,7,1,"Initial inspection done, relay coil open, relay not clicking, Q5 gate damaged, not switching, will replace and retest.",component_failure,Repairable,3.0
+J1051,PSU-CTRL,10,1,"Checked on the bench, op amp U1 output stuck high, U7 failed, no output on the pin, passes power up test now.",component_failure,Repairable,2.6
+J1052,SENSOR-IF,11,0,"Visual check complete, green deposits on the pins, moisture ingress, tracks eaten away, replaced and tested ok.",corrosion,BER,5.3
+J1053,SENSOR-IF,13,0,"C33 shorted to ground, solder bridge between adjacent pins, passes power up test now.",short_circuit,Repairable,3.5
+J1054,DISPLAY-DRV,4,1,"Checked on the bench, input voltage present but no rail out, no output on the 5V rail, needs further testing.",power_supply,Repairable,3.0
+J1055,MOTOR-DRV,5,1,"Op amp U7 output stuck high, parts ordered.",component_failure,Repairable,2.7
+J1056,SENSOR-IF,8,2,"Salt residue across the lower edge, green deposits on the pins, parts ordered.",corrosion,BER,5.2
+J1057,DISPLAY-DRV,8,0,"Checked on the bench, ripple on the supply too high, fuse blown on the input, will replace and retest.",power_supply,Repairable,3.8
+J1058,SENSOR-IF,7,1,"Checked on the bench, Q2 gate damaged, not switching, crystal oscillator not starting, replaced and tested ok.",component_failure,Repairable,3.7
+J1059,MOTOR-DRV,3,1,"Green deposits on the pins, passes power up test now.",corrosion,Repairable,5.7
+J1060,DISPLAY-DRV,3,0,"Initial inspection done, connector housing cracked, replaced and tested ok.",connector_fault,Repairable,0.8
+J1061,MCU-MAIN,8,1,"Board received from unit, R40 measures open.",open_circuit,Repairable,4.4
+J1062,PSU-CTRL,6,1,"Unit reported fault, moisture ingress, tracks eaten away, conformal coating peeled, corrosion underneath, parts ordered.",corrosion,Repairable,4.8
+J1063,RF-COMM,6,1,"Checked on the bench, open track near the mounting hole, intermittent signal, hairline crack in track, will replace and retest.",open_circuit,BER,3.9
+J1064,RF-COMM,7,4,"Checked on the bench, dry joint found under magnification, open track near the mounting hole.",open_circuit,BER,4.6
+J1065,PSU-CTRL,6,1,"Checked on the bench, conformal coating peeled, corrosion underneath, corroded legs on U5, passes power up test now.",corrosion,BER,5.4
+J1066,MOTOR-DRV,8,3,"Visual check complete, salt residue across the lower edge, conformal coating peeled, corrosion underneath, parts ordered.",corrosion,BER,6.0
+J1067,SENSOR-IF,11,0,"White crusty oxidation around the vias, dry joint found under magnification, via has no continuity between layers, replaced and tested ok.",open_circuit,Repairable,3.4
+J1068,SENSOR-IF,5,0,"Initial inspection done, fuse blown on the input, electrolytic C9 bulging, high ESR, optocoupler not responding, will replace and retest.",component_failure,Repairable,1.6
+J1069,RF-COMM,1,0,"Initial inspection done, board shows water damage and rust on the shield, moisture ingress, tracks eaten away, parts ordered.",corrosion,BER,7.3
+J1070,MOTOR-DRV,11,0,"Board received from unit, input voltage present but no rail out, relay coil open, relay not clicking, fuse blown on the input.",power_supply,Repairable,2.3
+J1071,RF-COMM,6,2,"Connector housing cracked, visible corrosion near the connector, contact resistance high on the plug, parts ordered.",connector_fault,BER,3.4
+J1072,SENSOR-IF,3,1,"Regulator U5 is hot, output drooping, input voltage present but no rail out, awaiting spare.",power_supply,Repairable,2.6
+J1073,MOTOR-DRV,4,0,"Unit reported fault, visible corrosion near the connector, C21 shorted to ground, burn mark under the shorted capacitor, needs further testing.",short_circuit,Repairable,2.9
+J1074,RF-COMM,6,0,"Checked on the bench, Q2 gate damaged, not switching, D6 failed open on diode test.",component_failure,Repairable,3.5
+J1075,RF-COMM,6,1,"Board received from unit, U7 failed, no output on the pin, Q1 gate damaged, not switching, needs further testing.",component_failure,Repairable,3.7
+J1076,MCU-MAIN,4,0,"Board received from unit, open track near the mounting hole, no output on the 5V rail, input voltage present but no rail out, awaiting spare.",power_supply,Repairable,2.5
+J1077,MCU-MAIN,13,1,"Checked on the bench, cracked solder joint on R15, lifted pad, track broken, needs further testing.",open_circuit,Repairable,3.3
+J1078,SENSOR-IF,25,3,"Visual check complete, cracked solder joint on R15, intermittent signal, hairline crack in track, will replace and retest.",open_circuit,BER,4.0
+J1079,MOTOR-DRV,3,1,"Initial inspection done, U12 running hot, internal short suspected, Q1 drain shorted to source, fuse blown on the input, will replace and retest.",short_circuit,Repairable,3.8
+J1080,DISPLAY-DRV,6,1,"Electrolytic C33 bulging, high ESR, relay coil open, relay not clicking, needs further testing.",component_failure,Repairable,2.5
+J1081,MOTOR-DRV,2,0,"Green deposits on the pins, white crusty oxidation around the vias, will replace and retest.",corrosion,BER,5.2
+J1082,RF-COMM,4,0,"Board received from unit, conformal coating peeled, corrosion underneath, board shows water damage and rust on the shield, parts ordered.",corrosion,BER,7.4
+J1083,DISPLAY-DRV,3,1,"Unit reported fault, lifted pad, track broken, awaiting spare.",open_circuit,Repairable,3.0
+J1084,RF-COMM,4,2,"Unit reported fault, white crusty oxidation around the vias, salt residue across the lower edge.",corrosion,BER,8.5
+J1085,PSU-CTRL,4,0,"Unit reported fault, optocoupler not responding, passes power up test now.",component_failure,Repairable,0.6
+J1086,RF-COMM,7,1,"Board received from unit, Q2 gate damaged, not switching, electrolytic C9 bulging, high ESR, needs further testing.",component_failure,Repairable,3.6
+J1087,SENSOR-IF,6,0,"Visual check complete, op amp U1 output stuck high, optocoupler not responding, replaced and tested ok.",component_failure,Repairable,2.0
+J1088,PSU-CTRL,12,2,"Dry joint found under magnification, lifted pad, track broken, passes power up test now.",open_circuit,Repairable,3.4
+J1089,RF-COMM,4,0,"Relay coil open, relay not clicking, power LED off, supply dead, input voltage present but no rail out, passes power up test now.",power_supply,Repairable,4.1
+J1090,MCU-MAIN,6,0,"Q5 gate damaged, not switching, crystal oscillator not starting, parts ordered.",component_failure,Repairable,3.0
+J1091,DISPLAY-DRV,5,1,"Initial inspection done, contact resistance high on the plug, cable harness intermittent at the plug, replaced and tested ok.",connector_fault,Repairable,2.6
+J1092,PSU-CTRL,1,0,"Checked on the bench, 3.3V regulator output low, switching regulator not starting up.",power_supply,Repairable,1.5
+J1093,DISPLAY-DRV,6,0,"Checked on the bench, dry joint found under magnification, awaiting spare.",open_circuit,Repairable,2.9
+J1094,MOTOR-DRV,2,1,"Initial inspection done, connector housing cracked, needs further testing.",connector_fault,Repairable,1.9
+J1095,MCU-MAIN,7,0,"Board received from unit, D2 failed open on diode test, optocoupler not responding, awaiting spare.",component_failure,BER,2.4
+J1096,SENSOR-IF,14,2,"Checked on the bench, power LED off, supply dead, no output on the 5V rail, awaiting spare.",power_supply,Repairable,3.6
+J1097,SENSOR-IF,3,0,"Unit reported fault, conformal coating peeled, corrosion underneath, green deposits on the pins, needs further testing.",corrosion,Repairable,4.1
+J1098,RF-COMM,14,1,"Board received from unit, burn mark under the shorted capacitor, C33 shorted to ground, will replace and retest.",short_circuit,BER,5.6
+J1099,MCU-MAIN,10,2,"Visual check complete, cracked solder joint on R7, dry joint found under magnification, parts ordered.",open_circuit,Repairable,5.2
+J1100,MOTOR-DRV,7,2,"Visual check complete, ribbon cable socket latch broken, parts ordered.",connector_fault,Repairable,1.7
+J1101,SENSOR-IF,17,3,"Unit reported fault, connector J1 pins bent, pin 3 of J2 pushed back, needs further testing.",connector_fault,Repairable,3.6
+J1102,DISPLAY-DRV,4,1,"Checked on the bench, supply goes into current limit at power up, replaced and tested ok.",short_circuit,Repairable,4.2
+J1103,PSU-CTRL,2,0,"Unit reported fault, board shows water damage and rust on the shield, salt residue across the lower edge, op amp U12 output stuck high.",corrosion,Repairable,3.5
+J1104,RF-COMM,6,1,"Solder bridge between adjacent pins, passes power up test now.",short_circuit,Repairable,5.4
+J1105,MOTOR-DRV,3,0,"Checked on the bench, 3.3V regulator output low, no continuity on the trace to the connector, ripple on the supply too high, will replace and retest.",power_supply,Repairable,4.1
+J1106,PSU-CTRL,6,1,"Initial inspection done, lifted pad, track broken, R7 measures open, needs further testing.",open_circuit,Repairable,2.7
+J1107,DISPLAY-DRV,6,0,"Initial inspection done, board shows water damage and rust on the shield, near zero ohms between VCC and ground, moisture ingress, tracks eaten away, awaiting spare.",corrosion,Repairable,6.2
+J1108,SENSOR-IF,1,0,"Board received from unit, C12 shorted to ground.",short_circuit,Repairable,2.9
+J1109,MCU-MAIN,2,0,"Visual check complete, board shows water damage and rust on the shield, contact resistance high on the plug, salt residue across the lower edge, will replace and retest.",corrosion,BER,5.9
+J1110,RF-COMM,3,0,"Unit reported fault, Q1 gate damaged, not switching, optocoupler not responding, needs further testing.",component_failure,Repairable,3.0
+J1111,RF-COMM,4,0,"Unit reported fault, input voltage present but no rail out, power LED off, supply dead, will replace and retest.",power_supply,BER,4.6
+J1112,RF-COMM,3,1,"Initial inspection done, near zero ohms between VCC and ground, C21 shorted to ground.",short_circuit,Repairable,5.3
+J1113,PSU-CTRL,1,0,"Visual check complete, input voltage present but no rail out, no output on the 5V rail, optocoupler not responding, passes power up test now.",power_supply,Repairable,1.9
+J1114,RF-COMM,2,0,"Checked on the bench, supply goes into current limit at power up, burn mark under the shorted capacitor, passes power up test now.",short_circuit,Repairable,5.5
+J1115,RF-COMM,1,0,"Board received from unit, Q1 drain shorted to source, near zero ohms between VCC and ground, will replace and retest.",short_circuit,Repairable,4.5
+J1116,MOTOR-DRV,12,2,"Board received from unit, green deposits on the pins, will replace and retest.",corrosion,BER,5.1
+J1117,DISPLAY-DRV,4,1,"Unit reported fault, lifted pad, track broken, dry joint found under magnification, parts ordered.",open_circuit,Repairable,2.3
+J1118,RF-COMM,9,2,"Checked on the bench, salt residue across the lower edge, moisture ingress, tracks eaten away, cable harness intermittent at the plug.",corrosion,BER,9.0
+J1119,PSU-CTRL,1,0,"Unit reported fault, op amp U1 output stuck high, relay coil open, relay not clicking, needs further testing.",component_failure,Repairable,1.7
+J1120,MOTOR-DRV,7,0,"Cable harness intermittent at the plug, connector housing cracked, needs further testing.",connector_fault,Repairable,1.4
+J1121,SENSOR-IF,3,0,"Visual check complete, contact resistance high on the plug, cable harness intermittent at the plug, passes power up test now.",connector_fault,Repairable,1.5
+J1122,MCU-MAIN,7,0,"Unit reported fault, ribbon cable socket latch broken, input voltage present but no rail out, parts ordered.",connector_fault,BER,1.3
+J1123,DISPLAY-DRV,23,2,"Checked on the bench, no output on the 5V rail, 3.3V regulator output low, awaiting spare.",power_supply,BER,5.6
+J1124,SENSOR-IF,6,0,"Unit reported fault, burn mark under the shorted capacitor, no continuity on the trace to the connector, will replace and retest.",short_circuit,Repairable,3.3
+J1125,RF-COMM,9,0,"Initial inspection done, relay coil open, relay not clicking, Q1 gate damaged, not switching.",component_failure,Repairable,3.0
+J1126,DISPLAY-DRV,5,3,"Unit reported fault, contact resistance high on the plug, ribbon cable socket latch broken, awaiting spare.",connector_fault,Repairable,2.9
+J1127,PSU-CTRL,6,0,"Lifted pad, track broken, cracked solder joint on R7, will replace and retest.",open_circuit,Repairable,2.4
+J1128,DISPLAY-DRV,10,1,"Board received from unit, regulator U3 is hot, output drooping, switching regulator not starting up, will replace and retest.",power_supply,Repairable,4.2
+J1129,SENSOR-IF,6,0,"Initial inspection done, near zero ohms between VCC and ground, Q1 drain shorted to source, salt residue across the lower edge, replaced and tested ok.",short_circuit,Repairable,3.3
+J1130,MCU-MAIN,7,1,"Visual check complete, Q5 drain shorted to source, burn mark under the shorted capacitor, white crusty oxidation around the vias, parts ordered.",short_circuit,Repairable,4.9
+J1131,SENSOR-IF,7,2,"Board received from unit, ripple on the supply too high, switching regulator not starting up, will replace and retest.",power_supply,Repairable,3.9
+J1132,RF-COMM,13,5,"Visual check complete, relay coil open, relay not clicking, Q2 gate damaged, not switching, needs further testing.",component_failure,BER,5.0
+J1133,MCU-MAIN,10,1,"Unit reported fault, moisture ingress, tracks eaten away, needs further testing.",corrosion,BER,6.0
+J1134,MOTOR-DRV,1,0,"U12 failed, no output on the pin, relay coil open, relay not clicking, will replace and retest.",component_failure,Repairable,2.7
+J1135,MOTOR-DRV,5,0,"Power LED off, supply dead, needs further testing.",power_supply,Repairable,3.1
+J1136,MCU-MAIN,12,1,"Initial inspection done, connector housing cracked, passes power up test now.",connector_fault,BER,2.9
+J1137,DISPLAY-DRV,4,0,"3.3V regulator output low, passes power up test now.",power_supply,Repairable,2.5
+J1138,PSU-CTRL,3,0,"Unit reported fault, Q5 gate damaged, not switching, needs further testing.",component_failure,Repairable,3.1
+J1139,DISPLAY-DRV,11,0,"Checked on the bench, salt residue across the lower edge, needs further testing.",corrosion,BER,6.0
+J1140,MOTOR-DRV,7,1,"Initial inspection done, pin 3 of P3 pushed back, needs further testing.",connector_fault,Repairable,1.4
+J1141,DISPLAY-DRV,4,0,"Board received from unit, electrolytic C9 bulging, high ESR, optocoupler not responding, passes power up test now.",component_failure,Repairable,2.7
+J1142,DISPLAY-DRV,3,0,"Visual check complete, contact resistance high on the plug, green deposits on the pins, corroded legs on U5, needs further testing.",corrosion,BER,6.3
+J1143,DISPLAY-DRV,7,4,"Input voltage present but no rail out, power LED off, supply dead, needs further testing.",power_supply,Repairable,5.1
+J1144,PSU-CTRL,9,2,"Checked on the bench, no output on the 5V rail, ripple on the supply too high, awaiting spare.",power_supply,Repairable,3.3
+J1145,SENSOR-IF,4,1,"Checked on the bench, loose contact in P3, header pins worn, poor mating, needs further testing.",connector_fault,BER,2.2
+J1146,DISPLAY-DRV,2,0,"Board received from unit, visible corrosion near the connector, needs further testing.",corrosion,Repairable,5.4
+J1147,RF-COMM,5,1,"Board received from unit, supply goes into current limit at power up, needs further testing.",short_circuit,BER,5.1
+J1148,DISPLAY-DRV,7,0,"Input voltage present but no rail out, ripple on the supply too high, replaced and tested ok.",power_supply,Repairable,3.3
+J1149,RF-COMM,4,1,"Board received from unit, input voltage present but no rail out, regulator U1 is hot, output drooping, replaced and tested ok.",power_supply,BER,4.2
+J1150,RF-COMM,15,3,"Checked on the bench, green deposits on the pins, conformal coating peeled, corrosion underneath, passes power up test now.",corrosion,BER,9.1
+J1151,SENSOR-IF,4,0,"Unit reported fault, Q2 drain shorted to source, C4 shorted to ground, passes power up test now.",short_circuit,Repairable,2.7
+J1152,DISPLAY-DRV,5,0,"Board received from unit, cracked solder joint on R15, header pins worn, poor mating, awaiting spare.",connector_fault,Repairable,1.0
+J1153,MCU-MAIN,4,0,"Initial inspection done, open track near the mounting hole, replaced and tested ok.",open_circuit,Repairable,3.2
+J1154,MCU-MAIN,6,2,"Initial inspection done, Q1 gate damaged, not switching, loose contact in J1, replaced and tested ok.",connector_fault,Repairable,2.8
+J1155,SENSOR-IF,8,3,"Checked on the bench, U1 running hot, internal short suspected, solder bridge between adjacent pins, parts ordered.",short_circuit,BER,4.3
+J1156,RF-COMM,4,0,"Visual check complete, pin 3 of P3 pushed back, electrolytic C33 bulging, high ESR, crystal oscillator not starting, passes power up test now.",component_failure,BER,2.6
+J1157,PSU-CTRL,9,1,"Unit reported fault, U1 running hot, internal short suspected, near zero ohms between VCC and ground, parts ordered.",short_circuit,Repairable,2.0
+J1158,PSU-CTRL,11,1,"Initial inspection done, supply goes into current limit at power up, C9 shorted to ground, passes power up test now.",short_circuit,Repairable,3.2
+J1159,MOTOR-DRV,5,0,"Ribbon cable socket latch broken, pin 3 of J4 pushed back, awaiting spare.",connector_fault,Repairable,1.7
+J1160,RF-COMM,5,1,"Q2 drain shorted to source, replaced and tested ok.",short_circuit,Repairable,4.5
+J1161,RF-COMM,5,2,"Unit reported fault, relay coil open, relay not clicking, Q1 gate damaged, not switching, needs further testing.",component_failure,BER,4.6
+J1162,DISPLAY-DRV,17,4,"Initial inspection done, U1 running hot, internal short suspected, optocoupler not responding, passes power up test now.",component_failure,Repairable,5.0
+J1163,DISPLAY-DRV,7,1,"Checked on the bench, U7 failed, no output on the pin, op amp U7 output stuck high, will replace and retest.",component_failure,BER,3.1
+J1164,RF-COMM,4,0,"U7 failed, no output on the pin, D6 failed open on diode test, awaiting spare.",component_failure,Repairable,2.9
+J1165,MOTOR-DRV,4,1,"Checked on the bench, dry joint found under magnification, cracked solder joint on R7, awaiting spare.",open_circuit,BER,3.1
+J1166,SENSOR-IF,3,0,"Initial inspection done, Q2 drain shorted to source, U7 running hot, internal short suspected.",short_circuit,BER,2.8
+J1167,MOTOR-DRV,1,0,"Connector J4 pins bent, switching regulator not starting up, pin 3 of J1 pushed back, needs further testing.",connector_fault,Repairable,2.3
+J1168,PSU-CTRL,2,0,"Checked on the bench, 3.3V regulator output low, intermittent signal, hairline crack in track, open track near the mounting hole, passes power up test now.",open_circuit,Repairable,2.0
+J1169,MOTOR-DRV,10,2,"Unit reported fault, dry joint found under magnification, no continuity on the trace to the connector, Q5 gate damaged, not switching, awaiting spare.",open_circuit,Repairable,4.2
+J1170,PSU-CTRL,8,0,"Checked on the bench, C4 shorted to ground, passes power up test now.",short_circuit,Repairable,2.9
+J1171,RF-COMM,12,3,"Visual check complete, corroded legs on U2, salt residue across the lower edge, will replace and retest.",corrosion,BER,8.9
+J1172,SENSOR-IF,2,0,"Board received from unit, board shows water damage and rust on the shield, white crusty oxidation around the vias, will replace and retest.",corrosion,Repairable,3.7
+J1173,MCU-MAIN,5,0,"Visual check complete, lifted pad, track broken, visible corrosion near the connector, needs further testing.",corrosion,Repairable,6.0
+J1174,SENSOR-IF,2,0,"Board received from unit, U2 running hot, internal short suspected, dead short on the 5V rail, passes power up test now.",short_circuit,Repairable,3.3
+J1175,MCU-MAIN,13,4,"Visual check complete, header pins worn, poor mating, connector P3 pins bent, will replace and retest.",connector_fault,BER,3.3
+J1176,RF-COMM,10,0,"Unit reported fault, near zero ohms between VCC and ground, awaiting spare.",short_circuit,Repairable,4.9
+J1177,RF-COMM,8,0,"Ripple on the supply too high, no output on the 5V rail, needs further testing.",power_supply,Repairable,4.6
+J1178,MCU-MAIN,11,1,"Unit reported fault, header pins worn, poor mating, connector P3 pins bent, replaced and tested ok.",connector_fault,BER,3.1
+J1179,RF-COMM,3,2,"Unit reported fault, loose contact in J4, connector housing cracked, replaced and tested ok.",connector_fault,Repairable,3.9
+J1180,SENSOR-IF,9,3,"Board received from unit, cracked solder joint on R15, lifted pad, track broken, needs further testing.",open_circuit,Repairable,3.3
+J1181,SENSOR-IF,6,2,"D9 failed open on diode test, fuse blown on the input, replaced and tested ok.",power_supply,Repairable,4.1
+J1182,DISPLAY-DRV,7,0,"Checked on the bench, burn mark under the shorted capacitor, Q5 drain shorted to source, parts ordered.",short_circuit,Repairable,4.1
+J1183,DISPLAY-DRV,5,1,"Header pins worn, poor mating, ribbon cable socket latch broken, needs further testing.",connector_fault,Repairable,2.6
+J1184,MCU-MAIN,11,3,"Board received from unit, board shows water damage and rust on the shield, conformal coating peeled, corrosion underneath, needs further testing.",corrosion,BER,6.4
+J1185,MOTOR-DRV,1,0,"Initial inspection done, dead short on the 5V rail, supply goes into current limit at power up, will replace and retest.",short_circuit,Repairable,2.9
+J1186,PSU-CTRL,15,3,"Initial inspection done, electrolytic C33 bulging, high ESR, parts ordered.",component_failure,BER,2.8
+J1187,RF-COMM,1,0,"Visual check complete, connector J2 pins bent, connector housing cracked, parts ordered.",connector_fault,Repairable,2.5
+J1188,MOTOR-DRV,5,0,"Board received from unit, cracked solder joint on R22, intermittent signal, hairline crack in track, will replace and retest.",open_circuit,Repairable,2.3
+J1189,MOTOR-DRV,5,0,"Checked on the bench, fuse blown on the input, parts ordered.",power_supply,Repairable,2.3
+J1190,MOTOR-DRV,1,0,"Visual check complete, header pins worn, poor mating, needs further testing.",connector_fault,Repairable,1.0
+J1191,RF-COMM,5,1,"Initial inspection done, visible corrosion near the connector, corroded legs on U12, will replace and retest.",corrosion,BER,7.9
+J1192,SENSOR-IF,2,0,"Visual check complete, U3 running hot, internal short suspected, supply goes into current limit at power up, passes power up test now.",short_circuit,Repairable,2.6
+J1193,MOTOR-DRV,6,4,"Initial inspection done, no continuity on the trace to the connector, needs further testing.",open_circuit,BER,3.3
+J1194,DISPLAY-DRV,2,0,"Regulator U12 is hot, output drooping, ripple on the supply too high, needs further testing.",power_supply,Repairable,3.9
+J1195,MOTOR-DRV,3,0,"Salt residue across the lower edge, conformal coating peeled, corrosion underneath, passes power up test now.",corrosion,BER,4.3
+J1196,DISPLAY-DRV,9,0,"Board received from unit, crystal oscillator not starting, ribbon cable socket latch broken, pin 3 of J4 pushed back, needs further testing.",connector_fault,BER,2.6
+J1197,RF-COMM,15,1,"Checked on the bench, near zero ohms between VCC and ground, no continuity on the trace to the connector.",open_circuit,Repairable,5.9
+J1198,MOTOR-DRV,8,2,"Visual check complete, no continuity on the trace to the connector, cracked solder joint on R15.",open_circuit,Repairable,3.7
+J1199,MOTOR-DRV,15,0,"Open track near the mounting hole, R22 measures open, replaced and tested ok.",open_circuit,BER,2.6
+J1200,RF-COMM,4,0,"Initial inspection done, contact resistance high on the plug, loose contact in J2.",connector_fault,Repairable,2.5
+J1201,RF-COMM,2,0,"Initial inspection done, dry joint found under magnification, R22 measures open, awaiting spare.",open_circuit,Repairable,3.9
+J1202,MOTOR-DRV,9,1,"Checked on the bench, salt residue across the lower edge, will replace and retest.",corrosion,BER,5.1
+J1203,DISPLAY-DRV,9,0,"Initial inspection done, green deposits on the pins, conformal coating peeled, corrosion underneath.",corrosion,BER,5.5
+J1204,PSU-CTRL,12,1,"Board received from unit, op amp U5 output stuck high, replaced and tested ok.",component_failure,BER,3.3
+J1205,RF-COMM,7,1,"Checked on the bench, near zero ohms between VCC and ground, connector housing cracked, C21 shorted to ground, parts ordered.",short_circuit,Repairable,5.3
+J1206,PSU-CTRL,9,1,"Checked on the bench, Q1 gate damaged, not switching, passes power up test now.",component_failure,Repairable,1.6
+J1207,SENSOR-IF,8,1,"Checked on the bench, lifted pad, track broken, parts ordered.",open_circuit,Repairable,2.9
+J1208,DISPLAY-DRV,7,4,"Solder bridge between adjacent pins, dry joint found under magnification, lifted pad, track broken, replaced and tested ok.",open_circuit,BER,3.6
+J1209,MCU-MAIN,5,0,"Q2 drain shorted to source, ribbon cable socket latch broken, connector J4 pins bent, passes power up test now.",connector_fault,Repairable,2.0
+J1210,MOTOR-DRV,6,1,"Board received from unit, board shows water damage and rust on the shield, will replace and retest.",corrosion,BER,4.9
+J1211,DISPLAY-DRV,5,0,"Visual check complete, cable harness intermittent at the plug, will replace and retest.",connector_fault,Repairable,2.1
+J1212,MOTOR-DRV,1,0,"Checked on the bench, relay coil open, relay not clicking, electrolytic C4 bulging, high ESR, needs further testing.",component_failure,Repairable,1.6
+J1213,PSU-CTRL,9,1,"Visual check complete, connector P3 pins bent, white crusty oxidation around the vias, connector housing cracked, passes power up test now.",connector_fault,Repairable,1.9
+J1214,PSU-CTRL,7,0,"Board received from unit, crystal oscillator not starting, Q5 gate damaged, not switching.",component_failure,Repairable,2.0
+J1215,MOTOR-DRV,4,1,"Initial inspection done, no output on the 5V rail, needs further testing.",power_supply,Repairable,3.1
+J1216,DISPLAY-DRV,2,0,"Dry joint found under magnification, via has no continuity between layers, will replace and retest.",open_circuit,Repairable,2.0
+J1217,DISPLAY-DRV,5,0,"Board received from unit, moisture ingress, tracks eaten away, visible corrosion near the connector, will replace and retest.",corrosion,Repairable,5.8
+J1218,SENSOR-IF,6,0,"Visual check complete, optocoupler not responding, D2 failed open on diode test, replaced and tested ok.",component_failure,Repairable,2.0
+J1219,SENSOR-IF,8,0,"Board received from unit, Q1 gate damaged, not switching, D6 failed open on diode test, parts ordered.",component_failure,BER,2.7
+J1220,DISPLAY-DRV,1,0,"Unit reported fault, salt residue across the lower edge, moisture ingress, tracks eaten away, needs further testing.",corrosion,Repairable,5.0
+J1221,MOTOR-DRV,3,0,"Board received from unit, relay coil open, relay not clicking, U5 failed, no output on the pin.",component_failure,Repairable,1.5
+J1222,MCU-MAIN,7,1,"Initial inspection done, loose contact in J4, connector J4 pins bent, awaiting spare.",connector_fault,Repairable,1.5
+J1223,DISPLAY-DRV,5,0,"Checked on the bench, board shows water damage and rust on the shield, salt residue across the lower edge, passes power up test now.",corrosion,Repairable,5.9
+J1224,SENSOR-IF,10,1,"Unit reported fault, connector P3 pins bent, contact resistance high on the plug.",connector_fault,Repairable,2.3
+J1225,DISPLAY-DRV,4,1,"Checked on the bench, regulator U7 is hot, output drooping, parts ordered.",power_supply,BER,3.1
+J1226,PSU-CTRL,2,1,"Board received from unit, via has no continuity between layers, awaiting spare.",open_circuit,Repairable,3.0
+J1227,PSU-CTRL,10,0,"Checked on the bench, contact resistance high on the plug, cable harness intermittent at the plug.",connector_fault,Repairable,1.3
+J1228,PSU-CTRL,2,0,"Checked on the bench, header pins worn, poor mating, connector housing cracked, needs further testing.",connector_fault,Repairable,1.5
+J1229,MCU-MAIN,19,7,"Board received from unit, supply goes into current limit at power up, Q5 drain shorted to source, awaiting spare.",short_circuit,BER,6.7
+J1230,PSU-CTRL,3,0,"Initial inspection done, optocoupler not responding, electrolytic C33 bulging, high ESR, parts ordered.",component_failure,Repairable,1.7
+J1231,MCU-MAIN,5,2,"Checked on the bench, burn mark under the shorted capacitor, 3.3V regulator output low.",short_circuit,Repairable,4.5
+J1232,DISPLAY-DRV,6,1,"Electrolytic C33 bulging, high ESR, op amp U3 output stuck high.",component_failure,Repairable,3.3
+J1233,MCU-MAIN,12,3,"Regulator U3 is hot, output drooping, input voltage present but no rail out, will replace and retest.",power_supply,Repairable,4.5
+J1234,MCU-MAIN,4,2,"Checked on the bench, open track near the mounting hole, no continuity on the trace to the connector, needs further testing.",open_circuit,Repairable,2.7
+J1235,RF-COMM,6,2,"Checked on the bench, loose contact in J4, connector P3 pins bent, passes power up test now.",connector_fault,Repairable,3.3
+J1236,RF-COMM,5,0,"Unit reported fault, loose contact in J4, contact resistance high on the plug, parts ordered.",connector_fault,Repairable,2.8
+J1237,RF-COMM,14,3,"Visual check complete, regulator U7 is hot, output drooping, input voltage present but no rail out, replaced and tested ok.",power_supply,Repairable,5.9
+J1238,MCU-MAIN,2,0,"Visual check complete, green deposits on the pins, needs further testing.",corrosion,Repairable,6.6
+J1239,MCU-MAIN,5,1,"Initial inspection done, R22 measures open, no continuity on the trace to the connector, needs further testing.",open_circuit,BER,3.0
+J1240,MCU-MAIN,2,0,"Visual check complete, regulator U3 is hot, output drooping, switching regulator not starting up, will replace and retest.",power_supply,Repairable,4.3
+J1241,MOTOR-DRV,5,1,"Checked on the bench, regulator U12 is hot, output drooping, 3.3V regulator output low, awaiting spare.",power_supply,Repairable,3.8
+J1242,SENSOR-IF,4,0,"Board received from unit, loose contact in J1.",connector_fault,Repairable,1.4
+J1243,MOTOR-DRV,4,2,"Relay coil open, relay not clicking, will replace and retest.",component_failure,Repairable,2.9
+J1244,RF-COMM,3,0,"Visual check complete, ripple on the supply too high, fuse blown on the input, parts ordered.",power_supply,Repairable,3.6
+J1245,SENSOR-IF,17,2,"Board received from unit, visible corrosion near the connector, green deposits on the pins, parts ordered.",corrosion,BER,6.4
+J1246,RF-COMM,2,0,"Initial inspection done, no continuity on the trace to the connector, dry joint found under magnification, needs further testing.",open_circuit,BER,3.8
+J1247,DISPLAY-DRV,1,1,"Unit reported fault, Q5 gate damaged, not switching, needs further testing.",component_failure,Repairable,2.6
+J1248,MCU-MAIN,8,1,"Board received from unit, board shows water damage and rust on the shield, U7 running hot, internal short suspected, green deposits on the pins, parts ordered.",corrosion,BER,6.3
+J1249,MCU-MAIN,16,2,"Initial inspection done, via has no continuity between layers, cracked solder joint on R15, awaiting spare.",open_circuit,Repairable,4.4
+J1250,RF-COMM,8,0,"Initial inspection done, visible corrosion near the connector, board shows water damage and rust on the shield, awaiting spare.",corrosion,BER,7.2
+J1251,RF-COMM,3,0,"Checked on the bench, via has no continuity between layers, open track near the mounting hole, board shows water damage and rust on the shield, needs further testing.",open_circuit,Repairable,3.3
+J1252,MOTOR-DRV,4,1,"Board received from unit, supply goes into current limit at power up, burn mark under the shorted capacitor.",short_circuit,Repairable,2.6
+J1253,RF-COMM,3,0,"Board received from unit, U7 failed, no output on the pin, op amp U2 output stuck high, needs further testing.",component_failure,Repairable,3.4
+J1254,PSU-CTRL,2,1,"Visual check complete, white crusty oxidation around the vias, corroded legs on U7, will replace and retest.",corrosion,Repairable,4.5
+J1255,MCU-MAIN,2,1,"Unit reported fault, near zero ohms between VCC and ground, solder bridge between adjacent pins.",short_circuit,Repairable,3.7
+J1256,MCU-MAIN,4,1,"Visual check complete, near zero ohms between VCC and ground, intermittent signal, hairline crack in track, lifted pad, track broken.",open_circuit,Repairable,3.5
+J1257,RF-COMM,9,2,"Unit reported fault, cable harness intermittent at the plug, awaiting spare.",connector_fault,BER,1.7
+J1258,SENSOR-IF,4,1,"Unit reported fault, lifted pad, track broken, dry joint found under magnification.",open_circuit,BER,3.4
+J1259,MOTOR-DRV,6,0,"Unit reported fault, pin 3 of J1 pushed back, connector housing cracked, passes power up test now.",connector_fault,Repairable,2.0
+J1260,PSU-CTRL,4,0,"Visual check complete, visible corrosion near the connector, white crusty oxidation around the vias, passes power up test now.",corrosion,Repairable,4.0
+J1261,MOTOR-DRV,8,2,"Checked on the bench, connector P3 pins bent, pin 3 of J2 pushed back, passes power up test now.",connector_fault,Repairable,2.1
+J1262,MOTOR-DRV,5,2,"Checked on the bench, moisture ingress, tracks eaten away, visible corrosion near the connector, passes power up test now.",corrosion,BER,4.7
+J1263,PSU-CTRL,7,2,"Board received from unit, via has no continuity between layers, R15 measures open, replaced and tested ok.",open_circuit,Repairable,2.9
+J1264,RF-COMM,8,1,"Visual check complete, connector J2 pins bent, header pins worn, poor mating, awaiting spare.",connector_fault,Repairable,2.7
+J1265,SENSOR-IF,5,2,"Unit reported fault, input voltage present but no rail out, regulator U2 is hot, output drooping, awaiting spare.",power_supply,BER,2.7
+J1266,SENSOR-IF,7,3,"Initial inspection done, pin 3 of P3 pushed back, lifted pad, track broken, contact resistance high on the plug, replaced and tested ok.",connector_fault,Repairable,2.0
+J1267,SENSOR-IF,5,1,"Optocoupler not responding, needs further testing.",component_failure,BER,2.7
+J1268,MOTOR-DRV,3,1,"Initial inspection done, 3.3V regulator output low, ripple on the supply too high, parts ordered.",power_supply,Repairable,2.9
+J1269,RF-COMM,1,0,"Checked on the bench, U12 failed, no output on the pin, D2 failed open on diode test, parts ordered.",component_failure,Repairable,2.2
+J1270,DISPLAY-DRV,3,1,"Crystal oscillator not starting, electrolytic C33 bulging, high ESR, awaiting spare.",component_failure,Repairable,2.6
+J1271,DISPLAY-DRV,3,1,"Checked on the bench, fuse blown on the input, crystal oscillator not starting, will replace and retest.",component_failure,Repairable,3.4
+J1272,PSU-CTRL,8,0,"Initial inspection done, board shows water damage and rust on the shield, visible corrosion near the connector, replaced and tested ok.",corrosion,Repairable,5.0
+J1273,PSU-CTRL,3,0,"Checked on the bench, contact resistance high on the plug, connector housing cracked.",connector_fault,Repairable,1.6
+J1274,SENSOR-IF,10,1,"Initial inspection done, U1 failed, no output on the pin, relay coil open, relay not clicking, replaced and tested ok.",component_failure,Repairable,3.0
+J1275,MOTOR-DRV,7,3,"Regulator U5 is hot, output drooping, replaced and tested ok.",power_supply,Repairable,4.2
+J1276,PSU-CTRL,6,2,"Unit reported fault, white crusty oxidation around the vias, will replace and retest.",corrosion,Repairable,4.8
+J1277,SENSOR-IF,3,2,"Visual check complete, header pins worn, poor mating, passes power up test now.",connector_fault,Repairable,2.4
+J1278,MOTOR-DRV,10,2,"Unit reported fault, contact resistance high on the plug.",connector_fault,Repairable,2.9
+J1279,PSU-CTRL,5,1,"Checked on the bench, optocoupler not responding, Q2 gate damaged, not switching, will replace and retest.",component_failure,BER,2.2
+J1280,DISPLAY-DRV,1,0,"Initial inspection done, crystal oscillator not starting, electrolytic C33 bulging, high ESR, parts ordered.",component_failure,Repairable,2.9
+J1281,RF-COMM,16,1,"Initial inspection done, ribbon cable socket latch broken, replaced and tested ok.",connector_fault,BER,2.9
+J1282,MCU-MAIN,6,2,"Initial inspection done, visible corrosion near the connector, replaced and tested ok.",corrosion,BER,6.6
+J1283,RF-COMM,9,3,"Initial inspection done, U12 failed, no output on the pin, D6 failed open on diode test, will replace and retest.",component_failure,Repairable,3.7
+J1284,DISPLAY-DRV,10,3,"Unit reported fault, supply goes into current limit at power up, Q5 drain shorted to source, passes power up test now.",short_circuit,BER,4.2
+J1285,SENSOR-IF,6,1,"Board received from unit, ripple on the supply too high, no continuity on the trace to the connector, regulator U7 is hot, output drooping, parts ordered.",power_supply,Repairable,3.3
+J1286,DISPLAY-DRV,21,3,"Initial inspection done, contact resistance high on the plug, ribbon cable socket latch broken, passes power up test now.",connector_fault,BER,3.4
+J1287,MCU-MAIN,1,0,"Cracked solder joint on R40, lifted pad, track broken, needs further testing.",open_circuit,Repairable,2.5
+J1288,PSU-CTRL,5,1,"Board received from unit, connector housing cracked, replaced and tested ok.",connector_fault,Repairable,1.7
+J1289,MCU-MAIN,9,1,"Visual check complete, electrolytic C9 bulging, high ESR, Q5 gate damaged, not switching, will replace and retest.",component_failure,Repairable,2.2
+J1290,MOTOR-DRV,6,0,"Board received from unit, salt residue across the lower edge, white crusty oxidation around the vias, awaiting spare.",corrosion,Repairable,4.2
+J1291,PSU-CTRL,7,0,"Unit reported fault, pin 3 of J1 pushed back, header pins worn, poor mating.",connector_fault,Repairable,1.6
+J1292,PSU-CTRL,4,0,"Checked on the bench, 3.3V regulator output low, no output on the 5V rail, passes power up test now.",power_supply,Repairable,1.3
+J1293,PSU-CTRL,5,0,"Board received from unit, salt residue across the lower edge, contact resistance high on the plug.",connector_fault,Repairable,1.7
+J1294,DISPLAY-DRV,6,1,"Switching regulator not starting up, fuse blown on the input, parts ordered.",power_supply,Repairable,3.5
+J1295,RF-COMM,7,1,"Supply goes into current limit at power up, near zero ohms between VCC and ground, will replace and retest.",short_circuit,Repairable,5.2
+J1296,MCU-MAIN,4,0,"Unit reported fault, cable harness intermittent at the plug, header pins worn, poor mating.",connector_fault,Repairable,1.6
+J1297,PSU-CTRL,4,1,"Initial inspection done, U5 running hot, internal short suspected, solder bridge between adjacent pins, replaced and tested ok.",short_circuit,Repairable,3.5
+J1298,RF-COMM,8,1,"Checked on the bench, crystal oscillator not starting, no output on the 5V rail, Q1 gate damaged, not switching, replaced and tested ok.",component_failure,Repairable,3.4
+J1299,MCU-MAIN,14,3,"Board received from unit, C33 shorted to ground, Q5 drain shorted to source, will replace and retest.",short_circuit,BER,5.8
+J1300,MCU-MAIN,1,0,"Board received from unit, power LED off, supply dead, 3.3V regulator output low.",power_supply,Repairable,2.9
+J1301,PSU-CTRL,3,1,"Visual check complete, R22 measures open, intermittent signal, hairline crack in track.",open_circuit,Repairable,2.4
+J1302,DISPLAY-DRV,4,1,"Checked on the bench, D9 failed open on diode test, Q1 gate damaged, not switching, needs further testing.",component_failure,Repairable,2.5
+J1303,PSU-CTRL,17,1,"Visual check complete, cable harness intermittent at the plug, header pins worn, poor mating, awaiting spare.",connector_fault,Repairable,2.3
+J1304,RF-COMM,8,0,"Initial inspection done, U7 running hot, internal short suspected, burn mark under the shorted capacitor, parts ordered.",short_circuit,BER,4.7
+J1305,RF-COMM,5,1,"Initial inspection done, no continuity on the trace to the connector, intermittent signal, hairline crack in track, replaced and tested ok.",open_circuit,Repairable,4.5
+J1306,MCU-MAIN,5,2,"Optocoupler not responding, awaiting spare.",component_failure,Repairable,3.6
+J1307,RF-COMM,9,2,"Visual check complete, salt residue across the lower edge, cracked solder joint on R40, moisture ingress, tracks eaten away.",corrosion,Repairable,7.3
+J1308,SENSOR-IF,4,0,"Visual check complete, Q2 drain shorted to source, C21 shorted to ground, awaiting spare.",short_circuit,Repairable,2.7
+J1309,PSU-CTRL,6,1,"Checked on the bench, Q1 drain shorted to source, burn mark under the shorted capacitor, needs further testing.",short_circuit,Repairable,3.0
+J1310,SENSOR-IF,21,5,"Checked on the bench, dead short on the 5V rail.",short_circuit,BER,5.2
+J1311,RF-COMM,2,1,"R15 measures open, dry joint found under magnification.",open_circuit,Repairable,3.8
+J1312,SENSOR-IF,7,0,"Unit reported fault, conformal coating peeled, corrosion underneath, salt residue across the lower edge, awaiting spare.",corrosion,Repairable,4.2
+J1313,RF-COMM,12,1,"Board received from unit, board shows water damage and rust on the shield, corroded legs on U3, needs further testing.",corrosion,BER,7.8
+J1314,SENSOR-IF,13,4,"Board received from unit, moisture ingress, tracks eaten away, conformal coating peeled, corrosion underneath, relay coil open, relay not clicking, needs further testing.",corrosion,BER,6.6
+J1315,MCU-MAIN,12,0,"Initial inspection done, intermittent signal, hairline crack in track, replaced and tested ok.",open_circuit,Repairable,3.7
+J1316,RF-COMM,18,2,"Header pins worn, poor mating, cable harness intermittent at the plug, parts ordered.",connector_fault,BER,3.3
+J1317,DISPLAY-DRV,10,1,"Power LED off, supply dead, 3.3V regulator output low, needs further testing.",power_supply,BER,4.1
+J1318,MCU-MAIN,10,0,"Dry joint found under magnification, cracked solder joint on R7.",open_circuit,Repairable,3.6
+J1319,PSU-CTRL,12,2,"Board received from unit, input voltage present but no rail out, replaced and tested ok.",power_supply,Repairable,3.4
+J1320,PSU-CTRL,4,0,"Checked on the bench, fuse blown on the input, needs further testing.",power_supply,Repairable,2.4
+J1321,PSU-CTRL,9,0,"Contact resistance high on the plug, header pins worn, poor mating, will replace and retest.",connector_fault,Repairable,1.7
+J1322,MOTOR-DRV,2,0,"Unit reported fault, connector J4 pins bent, needs further testing.",connector_fault,Repairable,1.5
+J1323,PSU-CTRL,9,1,"Ribbon cable socket latch broken, contact resistance high on the plug, replaced and tested ok.",connector_fault,Repairable,1.3
+J1324,PSU-CTRL,1,0,"Visual check complete, Q1 drain shorted to source, needs further testing.",short_circuit,Repairable,1.0
+J1325,SENSOR-IF,7,1,"Unit reported fault, Q2 gate damaged, not switching, replaced and tested ok.",component_failure,Repairable,3.0
+J1326,DISPLAY-DRV,8,1,"Initial inspection done, cracked solder joint on R7, board shows water damage and rust on the shield, via has no continuity between layers, will replace and retest.",open_circuit,Repairable,3.3
+J1327,DISPLAY-DRV,1,0,"Dead short on the 5V rail, parts ordered.",short_circuit,Repairable,3.4
+J1328,DISPLAY-DRV,4,1,"Visual check complete, U2 failed, no output on the pin, ripple on the supply too high, will replace and retest.",component_failure,Repairable,2.4
+J1329,PSU-CTRL,12,1,"Initial inspection done, no output on the 5V rail, 3.3V regulator output low, needs further testing.",power_supply,Repairable,3.5
+J1330,PSU-CTRL,6,0,"Visual check complete, intermittent signal, hairline crack in track, needs further testing.",open_circuit,Repairable,2.4
+J1331,MCU-MAIN,4,0,"Checked on the bench, ribbon cable socket latch broken, header pins worn, poor mating, needs further testing.",connector_fault,BER,2.3
+J1332,RF-COMM,9,4,"Checked on the bench, 3.3V regulator output low, ripple on the supply too high, needs further testing.",power_supply,BER,5.9
+J1333,PSU-CTRL,12,3,"Unit reported fault, dead short on the 5V rail.",short_circuit,Repairable,3.9
+J1334,MOTOR-DRV,4,0,"Unit reported fault, connector J4 pins bent, header pins worn, poor mating, parts ordered.",connector_fault,Repairable,1.4
+J1335,RF-COMM,8,2,"Initial inspection done, intermittent signal, hairline crack in track, R15 measures open, passes power up test now.",open_circuit,BER,5.4
+J1336,RF-COMM,8,1,"Visual check complete, Q1 drain shorted to source, no continuity on the trace to the connector, near zero ohms between VCC and ground, passes power up test now.",short_circuit,Repairable,4.7
+J1337,RF-COMM,9,1,"Initial inspection done, electrolytic C4 bulging, high ESR, parts ordered.",component_failure,Repairable,4.0
+J1338,SENSOR-IF,5,0,"Board received from unit, electrolytic C9 bulging, high ESR, awaiting spare.",component_failure,Repairable,2.2
+J1339,MOTOR-DRV,6,2,"Unit reported fault, connector J1 pins bent, will replace and retest.",connector_fault,Repairable,2.0
+J1340,MOTOR-DRV,8,0,"Initial inspection done, connector P3 pins bent, cable harness intermittent at the plug, will replace and retest.",connector_fault,Repairable,1.7
+J1341,DISPLAY-DRV,7,0,"Checked on the bench, cable harness intermittent at the plug, header pins worn, poor mating, replaced and tested ok.",connector_fault,Repairable,1.5
+J1342,SENSOR-IF,2,0,"Initial inspection done, D2 failed open on diode test, U5 failed, no output on the pin, needs further testing.",component_failure,Repairable,2.4
+J1343,RF-COMM,9,1,"Initial inspection done, Q5 drain shorted to source, near zero ohms between VCC and ground, awaiting spare.",short_circuit,Repairable,4.4
+J1344,MCU-MAIN,4,3,"Board received from unit, white crusty oxidation around the vias, needs further testing.",corrosion,Repairable,6.6
+J1345,MOTOR-DRV,4,0,"Initial inspection done, conformal coating peeled, corrosion underneath, moisture ingress, tracks eaten away.",corrosion,Repairable,4.5
+J1346,DISPLAY-DRV,3,0,"Checked on the bench, header pins worn, poor mating, pin 3 of J2 pushed back, replaced and tested ok.",connector_fault,Repairable,1.1
+J1347,RF-COMM,10,2,"Initial inspection done, optocoupler not responding, op amp U2 output stuck high, needs further testing.",component_failure,BER,4.6
+J1348,RF-COMM,3,1,"Board received from unit, contact resistance high on the plug, crystal oscillator not starting, op amp U7 output stuck high, passes power up test now.",component_failure,BER,4.7
+J1349,MCU-MAIN,6,0,"Initial inspection done, green deposits on the pins, corroded legs on U5, replaced and tested ok.",corrosion,Repairable,6.6
+J1350,DISPLAY-DRV,4,0,"Checked on the bench, D6 failed open on diode test, ribbon cable socket latch broken, Q2 gate damaged, not switching, awaiting spare.",component_failure,Repairable,2.3
+J1351,MOTOR-DRV,9,0,"Unit reported fault, no output on the 5V rail, input voltage present but no rail out, passes power up test now.",power_supply,Repairable,3.3
+J1352,MOTOR-DRV,4,1,"Loose contact in J2, needs further testing.",connector_fault,Repairable,2.0
+J1353,MCU-MAIN,9,1,"Visual check complete, input voltage present but no rail out, needs further testing.",power_supply,BER,3.7
+J1354,RF-COMM,14,3,"Board received from unit, power LED off, supply dead, solder bridge between adjacent pins, needs further testing.",short_circuit,BER,6.4
+J1355,RF-COMM,5,1,"Salt residue across the lower edge, board shows water damage and rust on the shield, parts ordered.",corrosion,Repairable,7.5
+J1356,PSU-CTRL,6,1,"Unit reported fault, electrolytic C9 bulging, high ESR, needs further testing.",component_failure,Repairable,2.0
+J1357,RF-COMM,2,1,"Visual check complete, via has no continuity between layers, R7 measures open, passes power up test now.",open_circuit,Repairable,4.7
+J1358,RF-COMM,7,1,"Board received from unit, U12 failed, no output on the pin, relay coil open, relay not clicking, passes power up test now.",component_failure,Repairable,4.1
+J1359,PSU-CTRL,2,0,"Checked on the bench, fuse blown on the input, intermittent signal, hairline crack in track, ripple on the supply too high, parts ordered.",power_supply,Repairable,2.0
+J1360,MCU-MAIN,6,0,"Salt residue across the lower edge, parts ordered.",corrosion,BER,6.0
+J1361,RF-COMM,5,2,"Q5 drain shorted to source, burn mark under the shorted capacitor, will replace and retest.",short_circuit,Repairable,6.7
+J1362,DISPLAY-DRV,3,2,"Checked on the bench, cracked solder joint on R7, lifted pad, track broken, awaiting spare.",open_circuit,Repairable,3.2
+J1363,MCU-MAIN,1,0,"Initial inspection done, optocoupler not responding, switching regulator not starting up, awaiting spare.",component_failure,Repairable,2.1
+J1364,RF-COMM,7,0,"Unit reported fault, loose contact in J4, cable harness intermittent at the plug, awaiting spare.",connector_fault,Repairable,2.9
+J1365,MCU-MAIN,1,0,"Solder bridge between adjacent pins, 3.3V regulator output low, switching regulator not starting up, will replace and retest.",power_supply,Repairable,3.5
+J1366,MCU-MAIN,1,1,"Relay coil open, relay not clicking, replaced and tested ok.",component_failure,Repairable,2.3
+J1367,MOTOR-DRV,12,1,"Unit reported fault, board shows water damage and rust on the shield, passes power up test now.",corrosion,BER,6.1
+J1368,DISPLAY-DRV,9,4,"Visual check complete, dry joint found under magnification, replaced and tested ok.",open_circuit,BER,3.4
+J1369,SENSOR-IF,7,0,"Visual check complete, conformal coating peeled, corrosion underneath, parts ordered.",corrosion,Repairable,5.0
+J1370,MCU-MAIN,7,0,"Unit reported fault, dry joint found under magnification, R40 measures open.",open_circuit,Repairable,3.5
+J1371,RF-COMM,5,1,"Checked on the bench, visible corrosion near the connector, replaced and tested ok.",corrosion,Repairable,8.0
+J1372,SENSOR-IF,10,3,"Initial inspection done, solder bridge between adjacent pins, green deposits on the pins, awaiting spare.",short_circuit,Repairable,4.5
+J1373,PSU-CTRL,4,3,"Visual check complete, U12 failed, no output on the pin, relay coil open, relay not clicking, replaced and tested ok.",component_failure,Repairable,2.9
+J1374,RF-COMM,9,0,"Q1 drain shorted to source, supply goes into current limit at power up, needs further testing.",short_circuit,BER,5.4
+J1375,PSU-CTRL,6,2,"Board received from unit, moisture ingress, tracks eaten away, awaiting spare.",corrosion,Repairable,4.9
+J1376,DISPLAY-DRV,4,1,"Open track near the mounting hole, relay coil open, relay not clicking, electrolytic C33 bulging, high ESR, awaiting spare.",component_failure,Repairable,3.5
+J1377,SENSOR-IF,4,2,"Initial inspection done, cable harness intermittent at the plug, contact resistance high on the plug, needs further testing.",connector_fault,Repairable,2.7
+J1378,SENSOR-IF,18,1,"Initial inspection done, loose contact in P3, contact resistance high on the plug, needs further testing.",connector_fault,Repairable,2.6
+J1379,DISPLAY-DRV,3,0,R15 measures open.,open_circuit,Repairable,2.4
+J1380,MCU-MAIN,15,2,"Unit reported fault, regulator U12 is hot, output drooping, ripple on the supply too high, parts ordered.",power_supply,BER,5.0
+J1381,RF-COMM,9,2,"Board received from unit, green deposits on the pins, moisture ingress, tracks eaten away, needs further testing.",corrosion,BER,8.0
+J1382,DISPLAY-DRV,7,0,"Unit reported fault, Q1 gate damaged, not switching, op amp U12 output stuck high, conformal coating peeled, corrosion underneath.",component_failure,BER,2.7
+J1383,PSU-CTRL,2,0,"Unit reported fault, ribbon cable socket latch broken, parts ordered.",connector_fault,Repairable,1.7
+J1384,SENSOR-IF,11,1,"Initial inspection done, D6 failed open on diode test, op amp U3 output stuck high.",component_failure,Repairable,2.5
+J1385,PSU-CTRL,3,1,"Board received from unit, burn mark under the shorted capacitor, C4 shorted to ground, replaced and tested ok.",short_circuit,Repairable,2.7
+J1386,RF-COMM,5,1,"Board received from unit, moisture ingress, tracks eaten away, conformal coating peeled, corrosion underneath, passes power up test now.",corrosion,BER,8.3
+J1387,SENSOR-IF,3,2,"Initial inspection done, via has no continuity between layers, needs further testing.",open_circuit,Repairable,2.8
+J1388,DISPLAY-DRV,7,2,"Checked on the bench, input voltage present but no rail out, passes power up test now.",power_supply,BER,3.7
+J1389,DISPLAY-DRV,9,1,"Unit reported fault, salt residue across the lower edge, cracked solder joint on R7, via has no continuity between layers, awaiting spare.",open_circuit,Repairable,3.3
+J1390,MCU-MAIN,5,2,"Connector J4 pins bent, contact resistance high on the plug.",connector_fault,Repairable,1.7
+J1391,RF-COMM,6,1,"Checked on the bench, 3.3V regulator output low, power LED off, supply dead, passes power up test now.",power_supply,Repairable,4.7
+J1392,PSU-CTRL,9,0,"Initial inspection done, solder bridge between adjacent pins, dead short on the 5V rail.",short_circuit,Repairable,2.5
+J1393,MCU-MAIN,6,2,"3.3V regulator output low, will replace and retest.",power_supply,Repairable,4.2
+J1394,MOTOR-DRV,8,2,"Checked on the bench, switching regulator not starting up, power LED off, supply dead, replaced and tested ok.",power_supply,Repairable,4.0
+J1395,RF-COMM,4,1,"Connector housing cracked, connector J1 pins bent, U3 running hot, internal short suspected, parts ordered.",connector_fault,Repairable,2.3
+J1396,SENSOR-IF,2,0,"Checked on the bench, cracked solder joint on R22, dry joint found under magnification, passes power up test now.",open_circuit,Repairable,3.0
+J1397,PSU-CTRL,10,3,"Initial inspection done, fuse blown on the input, needs further testing.",power_supply,Repairable,3.4
+J1398,DISPLAY-DRV,1,0,"Checked on the bench, U2 running hot, internal short suspected, C21 shorted to ground, will replace and retest.",short_circuit,Repairable,3.3
+J1399,MOTOR-DRV,4,0,"Initial inspection done, supply goes into current limit at power up, Q5 drain shorted to source, awaiting spare.",short_circuit,BER,3.5
+J1400,DISPLAY-DRV,3,1,"Unit reported fault, open track near the mounting hole, will replace and retest.",open_circuit,Repairable,2.7
+J1401,SENSOR-IF,7,1,"Board received from unit, intermittent signal, hairline crack in track, passes power up test now.",open_circuit,Repairable,2.5
+J1402,DISPLAY-DRV,11,2,"Unit reported fault, ribbon cable socket latch broken, connector J2 pins bent, needs further testing.",connector_fault,Repairable,2.7
+J1403,PSU-CTRL,5,1,"Checked on the bench, header pins worn, poor mating, passes power up test now.",connector_fault,Repairable,2.2
+J1404,DISPLAY-DRV,8,2,"Ripple on the supply too high, passes power up test now.",power_supply,BER,3.4
+J1405,MCU-MAIN,3,0,"Checked on the bench, U1 running hot, internal short suspected, awaiting spare.",short_circuit,BER,4.1
+J1406,PSU-CTRL,11,0,"Burn mark under the shorted capacitor, D2 failed open on diode test, U12 failed, no output on the pin, needs further testing.",component_failure,BER,1.7
+J1407,MOTOR-DRV,7,0,"Cable harness intermittent at the plug, contact resistance high on the plug, electrolytic C4 bulging, high ESR, needs further testing.",connector_fault,Repairable,1.1
+J1408,RF-COMM,4,2,"Visual check complete, op amp U12 output stuck high, passes power up test now.",component_failure,Repairable,3.1
+J1409,PSU-CTRL,12,3,"Unit reported fault, conformal coating peeled, corrosion underneath, visible corrosion near the connector, awaiting spare.",corrosion,BER,5.6
+J1410,MCU-MAIN,3,0,"Checked on the bench, electrolytic C4 bulging, high ESR, op amp U2 output stuck high, will replace and retest.",component_failure,Repairable,2.3
+J1411,PSU-CTRL,10,1,"Checked on the bench, burn mark under the shorted capacitor, replaced and tested ok.",short_circuit,BER,4.6
+J1412,MCU-MAIN,3,1,"Visual check complete, U3 running hot, internal short suspected, ripple on the supply too high, dead short on the 5V rail.",short_circuit,Repairable,4.0
+J1413,PSU-CTRL,6,1,"Initial inspection done, connector J2 pins bent, will replace and retest.",connector_fault,Repairable,1.4
+J1414,RF-COMM,6,2,"Unit reported fault, conformal coating peeled, corrosion underneath, solder bridge between adjacent pins, supply goes into current limit at power up, replaced and tested ok.",short_circuit,Repairable,4.3
+J1415,SENSOR-IF,7,1,"Initial inspection done, connector housing cracked, contact resistance high on the plug, parts ordered.",connector_fault,Repairable,1.4
+J1416,MCU-MAIN,4,0,"Visual check complete, regulator U1 is hot, output drooping, will replace and retest.",power_supply,Repairable,3.0
+J1417,MCU-MAIN,11,0,"Initial inspection done, connector J1 pins bent, cable harness intermittent at the plug, parts ordered.",connector_fault,BER,2.1
+J1418,DISPLAY-DRV,19,3,"Initial inspection done, fuse blown on the input, replaced and tested ok.",power_supply,BER,5.4
+J1419,RF-COMM,10,0,"Board received from unit, white crusty oxidation around the vias, via has no continuity between layers, parts ordered.",corrosion,BER,8.4
+J1420,DISPLAY-DRV,9,0,"Visual check complete, supply goes into current limit at power up, parts ordered.",short_circuit,Repairable,3.9
+J1421,PSU-CTRL,9,3,"Visual check complete, ribbon cable socket latch broken, replaced and tested ok.",connector_fault,Repairable,2.1
+J1422,MCU-MAIN,11,1,"Initial inspection done, relay coil open, relay not clicking, Q5 gate damaged, not switching, parts ordered.",component_failure,Repairable,2.7
+J1423,SENSOR-IF,2,0,"Board received from unit, no continuity on the trace to the connector, awaiting spare.",open_circuit,Repairable,2.6
+J1424,PSU-CTRL,11,1,"Board received from unit, dry joint found under magnification, parts ordered.",open_circuit,Repairable,2.8
+J1425,PSU-CTRL,2,0,"Initial inspection done, contact resistance high on the plug, needs further testing.",connector_fault,Repairable,0.5
+J1426,PSU-CTRL,9,3,"Checked on the bench, solder bridge between adjacent pins, U12 running hot, internal short suspected, will replace and retest.",short_circuit,BER,3.6
+J1427,MCU-MAIN,4,0,"Checked on the bench, crystal oscillator not starting, parts ordered.",component_failure,Repairable,2.9
+J1428,MOTOR-DRV,2,0,"Solder bridge between adjacent pins, moisture ingress, tracks eaten away, U2 running hot, internal short suspected, will replace and retest.",short_circuit,Repairable,2.9
+J1429,RF-COMM,9,2,"Checked on the bench, C4 shorted to ground, replaced and tested ok.",short_circuit,Repairable,5.9
+J1430,MCU-MAIN,9,1,"Unit reported fault, cracked solder joint on R22, lifted pad, track broken, will replace and retest.",open_circuit,BER,3.3
+J1431,PSU-CTRL,6,1,"Checked on the bench, U5 failed, no output on the pin, burn mark under the shorted capacitor, U2 running hot, internal short suspected, will replace and retest.",short_circuit,Repairable,3.4
+J1432,MCU-MAIN,13,0,"Unit reported fault, ribbon cable socket latch broken, regulator U3 is hot, output drooping, connector housing cracked, replaced and tested ok.",connector_fault,Repairable,2.9
+J1433,MCU-MAIN,11,4,"Initial inspection done, D9 failed open on diode test, U7 failed, no output on the pin, passes power up test now.",component_failure,BER,4.5
+J1434,SENSOR-IF,2,1,"Unit reported fault, board shows water damage and rust on the shield, visible corrosion near the connector, replaced and tested ok.",corrosion,Repairable,4.9
+J1435,RF-COMM,9,0,"R7 measures open, via has no continuity between layers.",open_circuit,Repairable,4.6
+J1436,DISPLAY-DRV,12,1,"Unit reported fault, optocoupler not responding, D9 failed open on diode test, parts ordered.",component_failure,Repairable,3.2
+J1437,SENSOR-IF,2,0,"Board received from unit, R22 measures open, open track near the mounting hole, conformal coating peeled, corrosion underneath.",open_circuit,Repairable,2.6
+J1438,MOTOR-DRV,3,1,"Checked on the bench, R15 measures open.",open_circuit,Repairable,3.5
+J1439,DISPLAY-DRV,8,1,"Checked on the bench, U2 running hot, internal short suspected, header pins worn, poor mating, supply goes into current limit at power up, awaiting spare.",short_circuit,Repairable,4.1
+J1440,PSU-CTRL,2,1,"Regulator U2 is hot, output drooping, ripple on the supply too high.",power_supply,Repairable,3.2
+J1441,RF-COMM,6,3,"Initial inspection done, Q1 drain shorted to source, contact resistance high on the plug, awaiting spare.",connector_fault,BER,3.7
+J1442,RF-COMM,3,2,"Initial inspection done, Q1 drain shorted to source, U3 running hot, internal short suspected.",short_circuit,Repairable,5.7
+J1443,SENSOR-IF,12,1,"Board received from unit, supply goes into current limit at power up.",short_circuit,Repairable,3.8
+J1444,MOTOR-DRV,8,0,"Board received from unit, relay coil open, relay not clicking, op amp U1 output stuck high, needs further testing.",component_failure,Repairable,2.5
+J1445,MCU-MAIN,5,0,"Dry joint found under magnification, via has no continuity between layers, passes power up test now.",open_circuit,Repairable,2.2
+J1446,MOTOR-DRV,4,0,"Visual check complete, fuse blown on the input, switching regulator not starting up, replaced and tested ok.",power_supply,Repairable,2.5
+J1447,RF-COMM,3,0,"Op amp U2 output stuck high, electrolytic C4 bulging, high ESR, awaiting spare.",component_failure,Repairable,3.2
+J1448,RF-COMM,8,1,"Board received from unit, header pins worn, poor mating, awaiting spare.",connector_fault,Repairable,2.4
+J1449,MCU-MAIN,13,2,"Visual check complete, power LED off, supply dead, will replace and retest.",power_supply,Repairable,4.3
+J1450,MCU-MAIN,1,0,"Initial inspection done, electrolytic C12 bulging, high ESR, needs further testing.",component_failure,BER,2.3
+J1451,MCU-MAIN,2,0,"Via has no continuity between layers, will replace and retest.",open_circuit,Repairable,3.1
+J1452,DISPLAY-DRV,8,4,"Board received from unit, burn mark under the shorted capacitor, near zero ohms between VCC and ground, replaced and tested ok.",short_circuit,Repairable,4.1
+J1453,RF-COMM,2,1,"Unit reported fault, corroded legs on U5, visible corrosion near the connector, awaiting spare.",corrosion,Repairable,6.6
+J1454,DISPLAY-DRV,5,0,"Checked on the bench, power LED off, supply dead, C12 shorted to ground, needs further testing.",power_supply,Repairable,2.9
+J1455,PSU-CTRL,24,4,"Initial inspection done, U2 running hot, internal short suspected, awaiting spare.",short_circuit,BER,5.0
+J1456,PSU-CTRL,4,0,"Visual check complete, optocoupler not responding, Q1 gate damaged, not switching, passes power up test now.",component_failure,Repairable,2.0
+J1457,MCU-MAIN,8,1,"Unit reported fault, connector J1 pins bent, replaced and tested ok.",connector_fault,Repairable,2.3
+J1458,RF-COMM,8,1,"Visual check complete, ripple on the supply too high, switching regulator not starting up, replaced and tested ok.",power_supply,BER,4.5
+J1459,PSU-CTRL,9,0,"Unit reported fault, burn mark under the shorted capacitor, dead short on the 5V rail, parts ordered.",short_circuit,Repairable,3.1
+J1460,PSU-CTRL,4,0,"Optocoupler not responding, electrolytic C4 bulging, high ESR, lifted pad, track broken, will replace and retest.",component_failure,Repairable,2.4
+J1461,RF-COMM,6,0,"Initial inspection done, burn mark under the shorted capacitor, Q5 drain shorted to source, passes power up test now.",short_circuit,Repairable,4.4
+J1462,MOTOR-DRV,1,0,"Checked on the bench, corroded legs on U2, salt residue across the lower edge, needs further testing.",corrosion,Repairable,5.8
+J1463,RF-COMM,4,0,"Initial inspection done, white crusty oxidation around the vias, replaced and tested ok.",corrosion,BER,7.1
+J1464,DISPLAY-DRV,3,0,"Board received from unit, switching regulator not starting up, parts ordered.",power_supply,Repairable,3.5
+J1465,MOTOR-DRV,1,0,"Visual check complete, intermittent signal, hairline crack in track, parts ordered.",open_circuit,BER,1.7
+J1466,MOTOR-DRV,5,1,"Unit reported fault, fuse blown on the input, power LED off, supply dead, parts ordered.",power_supply,Repairable,3.6
+J1467,DISPLAY-DRV,12,1,"Visual check complete, R15 measures open, supply goes into current limit at power up, C21 shorted to ground, will replace and retest.",short_circuit,Repairable,4.5
+J1468,RF-COMM,3,1,"Q5 drain shorted to source, U2 running hot, internal short suspected, needs further testing.",short_circuit,Repairable,5.6
+J1469,SENSOR-IF,4,3,"Board received from unit, input voltage present but no rail out, awaiting spare.",power_supply,Repairable,2.9
+J1470,SENSOR-IF,12,4,"Visual check complete, U12 failed, no output on the pin, relay coil open, relay not clicking, awaiting spare.",component_failure,BER,4.3
+J1471,RF-COMM,4,0,"Unit reported fault, supply goes into current limit at power up, awaiting spare.",short_circuit,Repairable,4.5
+J1472,PSU-CTRL,2,0,"Visual check complete, solder bridge between adjacent pins, needs further testing.",short_circuit,Repairable,2.7
+J1473,RF-COMM,7,1,"Unit reported fault, optocoupler not responding, op amp U7 output stuck high, replaced and tested ok.",component_failure,Repairable,4.1
+J1474,SENSOR-IF,15,2,"Checked on the bench, corroded legs on U5, visible corrosion near the connector, needs further testing.",corrosion,BER,6.6
+J1475,DISPLAY-DRV,5,0,"Board received from unit, dry joint found under magnification, no continuity on the trace to the connector, will replace and retest.",open_circuit,Repairable,2.6
+J1476,SENSOR-IF,3,1,"Initial inspection done, optocoupler not responding, relay coil open, relay not clicking, will replace and retest.",component_failure,Repairable,3.3
+J1477,MCU-MAIN,1,0,"Initial inspection done, dry joint found under magnification, intermittent signal, hairline crack in track, needs further testing.",open_circuit,Repairable,2.9
+J1478,DISPLAY-DRV,3,0,"Visual check complete, green deposits on the pins, board shows water damage and rust on the shield.",corrosion,Repairable,6.0
+J1479,RF-COMM,7,2,"Unit reported fault, lifted pad, track broken, switching regulator not starting up, input voltage present but no rail out, passes power up test now.",power_supply,BER,5.1
+J1480,MOTOR-DRV,8,1,"Checked on the bench, R7 measures open, visible corrosion near the connector, green deposits on the pins, parts ordered.",corrosion,BER,5.8
+J1481,PSU-CTRL,8,0,"Op amp U3 output stuck high, awaiting spare.",component_failure,Repairable,2.4
+J1482,RF-COMM,6,1,"Board received from unit, no output on the 5V rail, 3.3V regulator output low, awaiting spare.",power_supply,Repairable,4.8
+J1483,RF-COMM,5,1,"Unit reported fault, via has no continuity between layers, no continuity on the trace to the connector, electrolytic C12 bulging, high ESR, will replace and retest.",open_circuit,Repairable,4.7
+J1484,RF-COMM,4,0,"Checked on the bench, Q1 drain shorted to source, intermittent signal, hairline crack in track, U12 running hot, internal short suspected, awaiting spare.",short_circuit,Repairable,4.0
+J1485,PSU-CTRL,3,0,"Board received from unit, regulator U2 is hot, output drooping, switching regulator not starting up, will replace and retest.",power_supply,Repairable,2.1
+J1486,MCU-MAIN,9,2,"Visual check complete, op amp U5 output stuck high, crystal oscillator not starting, parts ordered.",component_failure,Repairable,3.4
+J1487,SENSOR-IF,8,1,"Unit reported fault, intermittent signal, hairline crack in track, lifted pad, track broken, header pins worn, poor mating, awaiting spare.",open_circuit,BER,3.0
+J1488,DISPLAY-DRV,6,1,"Visual check complete, pin 3 of J1 pushed back, header pins worn, poor mating, needs further testing.",connector_fault,Repairable,2.1
+J1489,SENSOR-IF,7,1,"Initial inspection done, ripple on the supply too high, switching regulator not starting up, passes power up test now.",power_supply,Repairable,3.3
+J1490,SENSOR-IF,8,1,"Checked on the bench, R40 measures open, open track near the mounting hole, passes power up test now.",open_circuit,Repairable,2.5
+J1491,MCU-MAIN,12,1,"Board received from unit, power LED off, supply dead, regulator U3 is hot, output drooping, parts ordered.",power_supply,BER,3.4
+J1492,RF-COMM,5,1,"Board received from unit, fuse blown on the input, regulator U12 is hot, output drooping, passes power up test now.",power_supply,Repairable,4.5
+J1493,MOTOR-DRV,8,3,"Unit reported fault, switching regulator not starting up, ripple on the supply too high, replaced and tested ok.",power_supply,Repairable,4.9
+J1494,DISPLAY-DRV,8,2,"Checked on the bench, loose contact in J2, connector housing cracked, passes power up test now.",connector_fault,Repairable,3.2
+J1495,MOTOR-DRV,1,0,"Cracked solder joint on R22, Q2 gate damaged, not switching, dry joint found under magnification, needs further testing.",open_circuit,Repairable,3.6
+J1496,MOTOR-DRV,1,0,"Unit reported fault, power LED off, supply dead, optocoupler not responding, replaced and tested ok.",component_failure,Repairable,2.2
+J1497,MOTOR-DRV,6,0,"Solder bridge between adjacent pins, Q1 drain shorted to source, replaced and tested ok.",short_circuit,Repairable,4.0
+J1498,MCU-MAIN,4,1,"Initial inspection done, dry joint found under magnification, cracked solder joint on R22, replaced and tested ok.",open_circuit,Repairable,3.8
+J1499,PSU-CTRL,8,1,"Initial inspection done, salt residue across the lower edge, board shows water damage and rust on the shield, will replace and retest.",corrosion,Repairable,4.5
+J1500,RF-COMM,5,2,"Checked on the bench, D6 failed open on diode test.",component_failure,BER,4.0
+J1501,PSU-CTRL,11,1,"Visual check complete, intermittent signal, hairline crack in track, R40 measures open, parts ordered.",open_circuit,Repairable,3.1
+J1502,PSU-CTRL,5,0,"Visual check complete, near zero ohms between VCC and ground, needs further testing.",short_circuit,BER,3.4
+J1503,MOTOR-DRV,5,0,"Board received from unit, open track near the mounting hole, via has no continuity between layers, replaced and tested ok.",open_circuit,BER,1.8
+J1504,DISPLAY-DRV,14,2,"Initial inspection done, electrolytic C21 bulging, high ESR, needs further testing.",component_failure,BER,3.5
+J1505,MCU-MAIN,4,2,"Board received from unit, solder bridge between adjacent pins, Q5 drain shorted to source, awaiting spare.",short_circuit,BER,4.2
+J1506,SENSOR-IF,3,1,"Conformal coating peeled, corrosion underneath, parts ordered.",corrosion,BER,4.5
+J1507,SENSOR-IF,1,0,"Checked on the bench, open track near the mounting hole, cracked solder joint on R15, replaced and tested ok.",open_circuit,Repairable,2.4
+J1508,MCU-MAIN,2,1,"Board received from unit, regulator U3 is hot, output drooping, no output on the 5V rail.",power_supply,Repairable,3.1
+J1509,PSU-CTRL,16,0,"Visible corrosion near the connector, white crusty oxidation around the vias, passes power up test now.",corrosion,BER,4.3
+J1510,PSU-CTRL,9,1,"Board received from unit, 3.3V regulator output low, parts ordered.",power_supply,Repairable,3.3
+J1511,PSU-CTRL,2,1,"Initial inspection done, cable harness intermittent at the plug, loose contact in J1, passes power up test now.",connector_fault,Repairable,1.0
+J1512,PSU-CTRL,5,0,"Visual check complete, regulator U1 is hot, output drooping, fuse blown on the input, awaiting spare.",power_supply,Repairable,2.9
+J1513,PSU-CTRL,9,1,"Board received from unit, optocoupler not responding, R22 measures open, passes power up test now.",component_failure,Repairable,1.9
+J1514,RF-COMM,16,3,"Checked on the bench, optocoupler not responding, passes power up test now.",component_failure,Repairable,5.2
+J1515,RF-COMM,14,1,"Checked on the bench, U12 failed, no output on the pin, supply goes into current limit at power up, will replace and retest.",component_failure,Repairable,4.6
+J1516,MOTOR-DRV,4,1,"Dead short on the 5V rail, supply goes into current limit at power up, parts ordered.",short_circuit,Repairable,3.7
+J1517,SENSOR-IF,11,2,"Unit reported fault, electrolytic C9 bulging, high ESR.",component_failure,BER,2.8
+J1518,SENSOR-IF,10,1,"Supply goes into current limit at power up, relay coil open, relay not clicking, Q1 gate damaged, not switching, passes power up test now.",component_failure,BER,3.1
+J1519,DISPLAY-DRV,7,0,"Initial inspection done, dry joint found under magnification, lifted pad, track broken, passes power up test now.",open_circuit,Repairable,2.8
+J1520,PSU-CTRL,5,0,"Initial inspection done, electrolytic C21 bulging, high ESR, parts ordered.",component_failure,Repairable,2.1
+J1521,SENSOR-IF,5,1,"Corroded legs on U2, conformal coating peeled, corrosion underneath, no output on the 5V rail.",corrosion,Repairable,4.3
+J1522,MCU-MAIN,15,0,"Unit reported fault, burn mark under the shorted capacitor, U7 running hot, internal short suspected, replaced and tested ok.",short_circuit,BER,3.4
+J1523,MOTOR-DRV,11,1,"Initial inspection done, visible corrosion near the connector, corroded legs on U12, passes power up test now.",corrosion,Repairable,6.2
+J1524,MCU-MAIN,9,3,"Unit reported fault, corroded legs on U5, U12 failed, no output on the pin.",corrosion,BER,6.5
+J1525,DISPLAY-DRV,4,1,"Connector housing cracked, header pins worn, poor mating, awaiting spare.",connector_fault,Repairable,1.4
+J1526,MOTOR-DRV,3,2,"3.3V regulator output low, fuse blown on the input, replaced and tested ok.",power_supply,BER,4.2
+J1527,RF-COMM,4,0,"Relay coil open, relay not clicking, electrolytic C33 bulging, high ESR, awaiting spare.",component_failure,BER,3.1
+J1528,PSU-CTRL,12,2,Burn mark under the shorted capacitor.,short_circuit,Repairable,4.4
+J1529,MCU-MAIN,2,0,"Unit reported fault, Q2 drain shorted to source, supply goes into current limit at power up, intermittent signal, hairline crack in track, parts ordered.",short_circuit,Repairable,3.3
+J1530,MCU-MAIN,14,4,"Unit reported fault, burn mark under the shorted capacitor, C21 shorted to ground, will replace and retest.",short_circuit,BER,6.0
+J1531,RF-COMM,12,0,"3.3V regulator output low, will replace and retest.",power_supply,Repairable,4.7
+J1532,MOTOR-DRV,12,4,"Board received from unit, pin 3 of J2 pushed back, parts ordered.",connector_fault,BER,3.0
+J1533,SENSOR-IF,1,0,"Board received from unit, optocoupler not responding.",component_failure,Repairable,1.9
+J1534,MOTOR-DRV,6,1,"Unit reported fault, header pins worn, poor mating, contact resistance high on the plug, will replace and retest.",connector_fault,Repairable,2.1
+J1535,DISPLAY-DRV,3,0,"Board received from unit, via has no continuity between layers, intermittent signal, hairline crack in track.",open_circuit,BER,3.0
+J1536,SENSOR-IF,18,5,"Visual check complete, loose contact in J2, connector P3 pins bent, input voltage present but no rail out, will replace and retest.",connector_fault,BER,3.5
+J1537,SENSOR-IF,19,4,"Checked on the bench, loose contact in P3, cracked solder joint on R40, will replace and retest.",connector_fault,Repairable,3.4
+J1538,DISPLAY-DRV,3,0,"Visual check complete, power LED off, supply dead, awaiting spare.",power_supply,Repairable,1.9
+J1539,MOTOR-DRV,2,0,"Unit reported fault, open track near the mounting hole, parts ordered.",open_circuit,Repairable,2.0
+J1540,MOTOR-DRV,4,0,"Visual check complete, salt residue across the lower edge, replaced and tested ok.",corrosion,BER,4.0
+J1541,PSU-CTRL,4,0,"Conformal coating peeled, corrosion underneath, white crusty oxidation around the vias, parts ordered.",corrosion,Repairable,4.7
+J1542,MOTOR-DRV,4,0,"Checked on the bench, input voltage present but no rail out, regulator U3 is hot, output drooping, replaced and tested ok.",power_supply,Repairable,2.9
+J1543,MCU-MAIN,8,0,"Visual check complete, white crusty oxidation around the vias, corroded legs on U12, needs further testing.",corrosion,BER,5.7
+J1544,DISPLAY-DRV,1,0,"Visual check complete, fuse blown on the input, 3.3V regulator output low, needs further testing.",power_supply,Repairable,2.5
+J1545,DISPLAY-DRV,9,3,"D9 failed open on diode test, passes power up test now.",component_failure,BER,3.4
+J1546,SENSOR-IF,7,1,"Board received from unit, power LED off, supply dead, ripple on the supply too high, passes power up test now.",power_supply,Repairable,3.0
+J1547,DISPLAY-DRV,2,0,"White crusty oxidation around the vias, corroded legs on U5, awaiting spare.",corrosion,BER,5.5
+J1548,PSU-CTRL,20,3,"Unit reported fault, C4 shorted to ground, lifted pad, track broken, replaced and tested ok.",short_circuit,Repairable,4.6
+J1549,PSU-CTRL,1,1,"Initial inspection done, no output on the 5V rail, parts ordered.",power_supply,Repairable,2.5
+J1550,PSU-CTRL,4,1,"Connector housing cracked, header pins worn, poor mating, parts ordered.",connector_fault,Repairable,2.1
+J1551,MCU-MAIN,7,0,"Connector P3 pins bent, connector housing cracked.",connector_fault,Repairable,2.0
+J1552,DISPLAY-DRV,8,3,"Visual check complete, U12 failed, no output on the pin, awaiting spare.",component_failure,Repairable,2.9
+J1553,RF-COMM,16,2,"Via has no continuity between layers, intermittent signal, hairline crack in track, passes power up test now.",open_circuit,BER,6.0
+J1554,MOTOR-DRV,7,1,"Lifted pad, track broken, passes power up test now.",open_circuit,Repairable,3.0
+J1555,PSU-CTRL,3,0,"Checked on the bench, cracked solder joint on R7, R40 measures open, needs further testing.",open_circuit,Repairable,1.5
+J1556,MCU-MAIN,7,1,"Visual check complete, open track near the mounting hole, no continuity on the trace to the connector, replaced and tested ok.",open_circuit,Repairable,3.1
+J1557,PSU-CTRL,6,1,"Initial inspection done, open track near the mounting hole, intermittent signal, hairline crack in track, awaiting spare.",open_circuit,Repairable,3.1
+J1558,DISPLAY-DRV,19,3,"Unit reported fault, Q5 gate damaged, not switching, U3 failed, no output on the pin, replaced and tested ok.",component_failure,BER,3.4
+J1559,MOTOR-DRV,7,3,"Visual check complete, U7 running hot, internal short suspected, will replace and retest.",short_circuit,BER,3.2
+J1560,SENSOR-IF,3,0,"Checked on the bench, via has no continuity between layers, no continuity on the trace to the connector, replaced and tested ok.",open_circuit,BER,1.8
+J1561,MOTOR-DRV,4,2,"Unit reported fault, connector J4 pins bent, contact resistance high on the plug, passes power up test now.",connector_fault,Repairable,1.4
+J1562,MOTOR-DRV,9,2,"Checked on the bench, header pins worn, poor mating.",connector_fault,BER,3.1
+J1563,PSU-CTRL,4,0,"Initial inspection done, white crusty oxidation around the vias, visible corrosion near the connector.",corrosion,BER,4.2
+J1564,SENSOR-IF,1,0,"Visual check complete, contact resistance high on the plug, connector J4 pins bent, replaced and tested ok.",connector_fault,Repairable,0.9
+J1565,SENSOR-IF,12,1,"Board received from unit, cable harness intermittent at the plug.",connector_fault,Repairable,2.1
+J1566,MOTOR-DRV,3,0,"Board received from unit, loose contact in J2, contact resistance high on the plug, parts ordered.",connector_fault,Repairable,1.6
+J1567,PSU-CTRL,3,0,"Visual check complete, intermittent signal, hairline crack in track, via has no continuity between layers, will replace and retest.",open_circuit,Repairable,2.8
+J1568,DISPLAY-DRV,2,0,"Checked on the bench, power LED off, supply dead, will replace and retest.",power_supply,Repairable,2.1
+J1569,PSU-CTRL,6,1,"Board received from unit, solder bridge between adjacent pins, awaiting spare.",short_circuit,Repairable,3.1
+J1570,MCU-MAIN,6,1,"Unit reported fault, optocoupler not responding, Q2 gate damaged, not switching, will replace and retest.",component_failure,Repairable,4.0
+J1571,RF-COMM,9,0,"Board received from unit, no output on the 5V rail, switching regulator not starting up, will replace and retest.",power_supply,BER,5.3
+J1572,DISPLAY-DRV,2,0,"Board received from unit, loose contact in J1, cable harness intermittent at the plug, passes power up test now.",connector_fault,Repairable,1.5
+J1573,SENSOR-IF,9,1,"Board received from unit, contact resistance high on the plug, connector housing cracked, passes power up test now.",connector_fault,Repairable,1.0
+J1574,PSU-CTRL,12,2,"Checked on the bench, moisture ingress, tracks eaten away, green deposits on the pins.",corrosion,Repairable,5.7
+J1575,MOTOR-DRV,13,3,Op amp U12 output stuck high.,component_failure,BER,3.4
+J1576,DISPLAY-DRV,4,1,"Initial inspection done, regulator U1 is hot, output drooping, loose contact in J4, replaced and tested ok.",power_supply,BER,2.7
+J1577,DISPLAY-DRV,2,0,"Fuse blown on the input, power LED off, supply dead.",power_supply,Repairable,3.5
+J1578,MOTOR-DRV,9,0,"Checked on the bench, R22 measures open, passes power up test now.",open_circuit,Repairable,2.1
+J1579,MOTOR-DRV,8,1,"Visual check complete, dead short on the 5V rail, supply goes into current limit at power up, needs further testing.",short_circuit,Repairable,3.6
+J1580,PSU-CTRL,8,0,"Dry joint found under magnification, no continuity on the trace to the connector, passes power up test now.",open_circuit,Repairable,3.0
+J1581,DISPLAY-DRV,10,1,"Board received from unit, cracked solder joint on R22, dry joint found under magnification, needs further testing.",open_circuit,Repairable,3.4
+J1582,MOTOR-DRV,7,0,"Initial inspection done, regulator U7 is hot, output drooping, ripple on the supply too high, needs further testing.",power_supply,Repairable,3.4
+J1583,RF-COMM,6,2,"Board received from unit, R15 measures open, intermittent signal, hairline crack in track, passes power up test now.",open_circuit,BER,3.5
+J1584,RF-COMM,6,2,"Initial inspection done, Q2 gate damaged, not switching, needs further testing.",component_failure,Repairable,3.8
+J1585,SENSOR-IF,7,3,"Visual check complete, salt residue across the lower edge, will replace and retest.",corrosion,Repairable,4.9
+J1586,SENSOR-IF,2,0,"Visual check complete, lifted pad, track broken, passes power up test now.",open_circuit,Repairable,2.1
+J1587,PSU-CTRL,7,3,"Board received from unit, no output on the 5V rail, awaiting spare.",power_supply,Repairable,3.5
+J1588,RF-COMM,8,2,"Checked on the bench, pin 3 of P3 pushed back, replaced and tested ok.",connector_fault,Repairable,2.8
+J1589,SENSOR-IF,6,3,"Checked on the bench, white crusty oxidation around the vias, green deposits on the pins, awaiting spare.",corrosion,Repairable,5.8
+J1590,PSU-CTRL,4,1,"Initial inspection done, visible corrosion near the connector, conformal coating peeled, corrosion underneath, cable harness intermittent at the plug.",corrosion,BER,4.5
+J1591,MOTOR-DRV,5,0,"Unit reported fault, no continuity on the trace to the connector, awaiting spare.",open_circuit,BER,2.7
+J1592,DISPLAY-DRV,13,3,"Green deposits on the pins, dry joint found under magnification, no continuity on the trace to the connector, needs further testing.",open_circuit,Repairable,4.3
+J1593,SENSOR-IF,12,2,"Board received from unit, R22 measures open, lifted pad, track broken, parts ordered.",open_circuit,BER,3.4
+J1594,PSU-CTRL,7,0,"Dead short on the 5V rail, near zero ohms between VCC and ground, passes power up test now.",short_circuit,Repairable,2.5
+J1595,SENSOR-IF,8,1,"Initial inspection done, regulator U12 is hot, output drooping, fuse blown on the input, awaiting spare.",power_supply,Repairable,3.6
+J1596,DISPLAY-DRV,6,1,"Visual check complete, U7 running hot, internal short suspected, dead short on the 5V rail.",short_circuit,Repairable,3.6
+J1597,SENSOR-IF,1,0,"Unit reported fault, visible corrosion near the connector, white crusty oxidation around the vias, parts ordered.",corrosion,Repairable,4.0
+J1598,MCU-MAIN,17,3,"Board received from unit, lifted pad, track broken, cracked solder joint on R15, electrolytic C9 bulging, high ESR, parts ordered.",open_circuit,BER,4.5
+J1599,SENSOR-IF,2,2,"Board received from unit, power LED off, supply dead, fuse blown on the input, intermittent signal, hairline crack in track, will replace and retest.",power_supply,Repairable,3.3

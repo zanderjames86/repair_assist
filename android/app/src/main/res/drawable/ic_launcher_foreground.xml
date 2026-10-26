@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp" android:height="108dp"
+    android:viewportWidth="108" android:viewportHeight="108">
+    <!-- chip body -->
+    <path android:fillColor="#FFFFFFFF" android:pathData="M38,38h32v32h-32z" />
+    <path android:fillColor="#FF1C5CAB" android:pathData="M44,44h20v20h-20z" />
+    <!-- pins -->
+    <path android:fillColor="#FFFFFFFF"
+        android:pathData="M42,30h4v8h-4z M52,30h4v8h-4z M62,30h4v8h-4z M42,70h4v8h-4z M52,70h4v8h-4z M62,70h4v8h-4z M30,42h8v4h-8z M30,52h8v4h-8z M30,62h8v4h-8z M70,42h8v4h-8z M70,52h8v4h-8z M70,62h8v4h-8z" />
+</vector>

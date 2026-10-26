@@ -1,0 +1,16 @@
+__pycache__/
+*.pyc
+.venv/
+.pytest_cache/
+detector/runs/
+detector/data_run.yaml
+*.pt
+# Android
+android/.gradle/
+android/build/
+android/app/build/
+android/local.properties
+android/.idea/
+*.iml
+# downloaded in CI (Vosk speech model, ~40 MB)
+android/app/src/main/assets/model-en-us/
