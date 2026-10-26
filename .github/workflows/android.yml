@@ -2,7 +2,7 @@ name: Android app
 
 on:
   push:
-    paths: ["android/**", ".github/workflows/android.yml"]
+    paths: ["android/**", ".github/workflows/android.yml", "tests/speech_cases.json"]
   workflow_dispatch:
 
 permissions:
@@ -43,6 +43,21 @@ jobs:
           echo "$VOSK_MODEL" > android/app/src/main/assets/model-en-us/uuid
           du -sh android/app/src/main/assets/model-en-us
 
+      - name: Synthesise test voice notes for the on-device speech test
+        run: |
+          sudo apt-get install -y -qq espeak-ng ffmpeg
+          D=android/app/src/androidTest/assets/speech; mkdir -p $D
+          cp tests/speech_cases.json $D/cases.json
+          python3 - <<'PY'
+          import json, subprocess
+          cases = json.load(open("tests/speech_cases.json"))
+          for i, c in enumerate(cases):
+              subprocess.run(["espeak-ng", "-v", "en-us", "-s", "140", "-w", "/tmp/n.wav", c["text"]], check=True)
+              subprocess.run(["ffmpeg", "-loglevel", "error", "-y", "-i", "/tmp/n.wav", "-ar", "16000", "-ac", "1",
+                              "-c:a", "pcm_s16le", "-map_metadata", "-1", "-fflags", "+bitexact",
+                              f"android/app/src/androidTest/assets/speech/note{i}.wav"], check=True)
+          PY
+          ls -la $D
       - name: JVM unit tests (model parity, OCR parser, YOLO decoding)
         run: set -o pipefail; gradle -p android testDebugUnitTest --stacktrace 2>&1 | tee -a ci.log
       - name: Build APKs

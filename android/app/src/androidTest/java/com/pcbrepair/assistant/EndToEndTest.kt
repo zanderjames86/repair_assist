@@ -124,6 +124,60 @@ class EndToEndTest {
         assertTrue(n >= 600)
     }
 
+    /** Synthesised voice notes (16 kHz WAV) -> Vosk offline speech-to-text -> fault classifier. */
+    @Test
+    fun offlineSpeechToText() {
+        val testAssets = InstrumentationRegistry.getInstrumentation().context.assets
+        val cases = testAssets.open("speech/cases.json").reader().use {
+            com.google.gson.JsonParser.parseReader(it).asJsonArray
+        }
+        val latch = java.util.concurrent.CountDownLatch(1)
+        var model: org.vosk.Model? = null
+        var error: String? = null
+        org.vosk.android.StorageService.unpack(context, "model-en-us", "model",
+            { m -> model = m; latch.countDown() }, { e -> error = e.message; latch.countDown() })
+        assertTrue("speech model unpack timed out", latch.await(180, java.util.concurrent.TimeUnit.SECONDS))
+        val m = model ?: throw AssertionError("speech model failed to load: $error")
+        val engine = Engine(context)
+        var hits = 0; var total = 0; var correct = 0
+        cases.forEachIndexed { i, c ->
+            val o = c.asJsonObject
+            val wav = testAssets.open("speech/note$i.wav").use { it.readBytes() }
+            val pcmStart = dataChunk(wav)
+            val rec = org.vosk.Recognizer(m, 16000.0f)
+            var pos = pcmStart
+            while (pos < wav.size) {
+                val n = minOf(4096, wav.size - pos)
+                rec.acceptWaveForm(wav.copyOfRange(pos, pos + n), n)
+                pos += n
+            }
+            val text = com.google.gson.JsonParser.parseString(rec.finalResult).asJsonObject.get("text").asString
+            rec.close()
+            println("Vosk heard: '$text'")
+            val words = text.lowercase().split(" ").toSet()
+            o.getAsJsonArray("keywords").forEach { k -> total++; if (k.asString in words) hits++ }
+            val p = engine.fault.predictProba(text)
+            if (engine.fault.classes()[com.pcbrepair.assistant.core.FaultClassifier.argmax(p)] == o.get("fault").asString) correct++
+        }
+        m.close()
+        println("Vosk keyword recall $hits/$total, faults correct $correct/${cases.size()}")
+        assertTrue("keyword recall $hits/$total", hits.toDouble() / total >= 0.5)
+        assertTrue("faults correct $correct/${cases.size()}", correct >= 2)
+    }
+
+    /** Byte offset of the PCM samples in a WAV file. */
+    private fun dataChunk(wav: ByteArray): Int {
+        var i = 12
+        while (i + 8 <= wav.size) {
+            val id = String(wav, i, 4, Charsets.US_ASCII)
+            val size = (wav[i + 4].toInt() and 0xFF) or ((wav[i + 5].toInt() and 0xFF) shl 8) or
+                    ((wav[i + 6].toInt() and 0xFF) shl 16) or ((wav[i + 7].toInt() and 0xFF) shl 24)
+            if (id == "data") return i + 8
+            i += 8 + size
+        }
+        return 44
+    }
+
     @Test
     fun onDeviceModelsMatchTrainingResults() {
         val e = Engine(context)

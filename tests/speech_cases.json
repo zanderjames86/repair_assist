@@ -1,0 +1,10 @@
+[
+  {"text": "No output on the five volt rail. The regulator is hot.", "fault": "power_supply",
+   "keywords": ["output", "volt", "rail", "regulator", "hot"]},
+  {"text": "Green deposits on the pins and salt residue near the connector. Moisture ingress.", "fault": "corrosion",
+   "keywords": ["green", "deposits", "pins", "salt", "residue", "moisture"]},
+  {"text": "Dead short to ground on the capacitor. The supply goes into current limit.", "fault": "short_circuit",
+   "keywords": ["dead", "short", "ground", "capacitor", "current", "limit"]},
+  {"text": "Connector pins bent and loose contact at the plug.", "fault": "connector_fault",
+   "keywords": ["connector", "pins", "bent", "loose", "contact", "plug"]}
+]

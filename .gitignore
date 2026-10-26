@@ -14,3 +14,4 @@ android/.idea/
 *.iml
 # downloaded in CI (Vosk speech model, ~40 MB)
 android/app/src/main/assets/model-en-us/
+android/app/src/androidTest/assets/speech/
