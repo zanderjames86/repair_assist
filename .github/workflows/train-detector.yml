@@ -5,7 +5,7 @@ on:
     inputs:
       hours:
         description: "Training time budget (hours)"
-        default: "4.5"
+        default: "4.0"
       epochs:
         description: "Maximum epochs"
         default: "120"
@@ -33,13 +33,15 @@ jobs:
           pip install torch torchvision --index-url https://download.pytorch.org/whl/cpu
           pip install ultralytics onnx onnxslim onnxruntime pytest pillow pandas
       - name: Fine-tune YOLOv8n (COCO-pretrained) on CPU
-        run: set -o pipefail; python detector/train.py --hours "${{ inputs.hours || '4.5' }}" --epochs "${{ inputs.epochs || '120' }}" 2>&1 | tee ci.log
+        run: set -o pipefail; python detector/train.py --hours "${{ inputs.hours || '4.0' }}" --epochs "${{ inputs.epochs || '120' }}" 2>&1 | tee ci.log
       - name: Check the exported model
         run: set -o pipefail; pytest -v tests/test_detector.py 2>&1 | tee -a ci.log
-      - name: Publish failure log to the ci-logs branch
-        if: failure()
+      - name: Publish training log to the ci-logs branch
+        if: always()
         run: |
           mkdir -p /tmp/out && cp ci.log /tmp/out/ 2>/dev/null || true
+          cp detector/runs/parts/results.csv models/parts.json /tmp/out/ 2>/dev/null || true
+          echo "run ${{ github.run_id }}" > /tmp/out/run.txt
           cd /tmp/out && git init -q && git checkout -q -b ci-logs
           git -c user.name=ci -c user.email=ci@localhost add -A && git -c user.name=ci -c user.email=ci@localhost commit -qm "logs ${{ github.workflow }} ${{ github.run_id }} ${{ github.job }}"
           git push -f "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}" ci-logs:ci-logs-${{ github.job }}
@@ -57,7 +59,7 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add models/parts.onnx models/parts.json android/app/src/main/assets/models/parts.onnx android/app/src/main/assets/models/parts.json
           git commit -m "Trained part detector: $(python -c "import json;m=json.load(open('models/parts.json'))['metrics'];print(f\"mAP50 {m['map50']}, mAP50-95 {m['map50_95']}\")")"
-          git push
+          for i in 1 2 3 4 5; do git pull --rebase -q origin "${{ github.ref_name }}" && git push && break; sleep 10; done
       - name: Rebuild Android app and re-run Python tests with the new model
         env: { GH_TOKEN: "${{ github.token }}" }
         run: |

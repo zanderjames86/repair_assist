@@ -5,6 +5,7 @@ boards, export to ONNX and install it into the web app and the Android app.
 Runs on CPU (GitHub Actions: .github/workflows/train-detector.yml).
   python detector/train.py --epochs 60 --hours 4.0
 Smoke test (no pretrained weights, tiny):  python detector/train.py --smoke
+CPU budget: about 3.5 min per epoch at 1024 px on a 4-core runner.
 """
 import argparse
 import json
