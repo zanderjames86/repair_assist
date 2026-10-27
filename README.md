@@ -1,5 +1,8 @@
 # PCB Repair Assistant
 
+**Live web app:** https://pcb-repair-assistant.streamlit.app ·
+**Android APK:** [Releases → latest](https://github.com/zanderjames86/repair_assist/releases/tag/latest)
+
 Hands-free job cards for the electronics repair bench. A technician photographs a faulty board,
 speaks a short note about the fault, and the assistant reads the board's asset tag, finds the
 components on the board, diagnoses the fault and recommends whether the board is worth repairing.
@@ -148,7 +151,7 @@ Every push runs on GitHub Actions:
 3. On the tablet, open it from the Files app and allow "install unknown apps" for Files.
 4. The app needs no network. Grant microphone permission the first time you record a voice note.
 
-Requires Android 8.0 or later. The APK is about 115–130 MB because every model is bundled.
+Requires Android 8.0 or later. The APK is about 127 MB because every model is bundled (Vosk speech ~40 MB, detector 13 MB, ML Kit OCR).
 
 ## Run the web app
 

@@ -45,8 +45,9 @@ Everything runs on the device, and the app has no internet permission."
   answers match Python to six decimal places on 600 cases."
 
 ## 4. Engineering and honesty (1 min)
-- Testing: about 40 Python tests and 19 JVM tests on every push, plus an end-to-end test on an
-  Android emulator in GitHub Actions.
+- Testing: 41 Python tests, 19 JVM unit tests and 7 end-to-end tests on an Android emulator run on every
+  push in GitHub Actions. On the emulator, ML Kit read 94% of the tags, and offline speech recognised
+  21 of 23 key words and diagnosed 4 of 4 spoken notes correctly.
 - OCR: 49/50 tags read correctly once the tag is located and cleaned, against 15/50 for raw OCR.
   The miss is a yellow tag on a yellow motherboard.
 - Limits: the repair records are synthetic (no sensitive data), the tiniest SMD parts are hard to detect,
