@@ -68,7 +68,12 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add models/parts.onnx models/parts.json android/app/src/main/assets/models/parts.onnx android/app/src/main/assets/models/parts.json
           git commit -m "Trained part detector: $(python -c "import json;m=json.load(open('models/parts.json'))['metrics'];print(f\"mAP50 {m['map50']}, mAP50-95 {m['map50_95']}\")")"
-          for i in 1 2 3 4 5; do git pull --rebase -q origin "${{ github.ref_name }}" && git push && break; sleep 10; done
+          ok=0
+          for i in 1 2 3 4 5; do
+            if git pull --rebase origin "${{ github.ref_name }}" && git push; then ok=1; break; fi
+            sleep 10
+          done
+          [ "$ok" = 1 ] || { echo "::error::could not push the trained model (it is saved on the detector-model branch)"; exit 1; }
       - name: Rebuild Android app and re-run Python tests with the new model
         env: { GH_TOKEN: "${{ github.token }}" }
         run: |

@@ -1,0 +1,35 @@
+{
+  "names": [
+    "Capacitor",
+    "Connector",
+    "IC",
+    "Inductor",
+    "Resistor",
+    "Switch",
+    "Transistor/Diode"
+  ],
+  "imgsz": 1024,
+  "metrics": {
+    "map50": 0.349,
+    "map50_95": 0.184,
+    "precision": 0.418,
+    "recall": 0.371
+  },
+  "per_class_ap50": {
+    "Capacitor": 0.238,
+    "Connector": 0.54,
+    "IC": 0.628,
+    "Inductor": 0.016,
+    "Resistor": 0.262,
+    "Switch": 0.591,
+    "Transistor/Diode": 0.166
+  },
+  "training": {
+    "base": "yolov8n.pt",
+    "epochs_requested": 120,
+    "imgsz": 1024,
+    "minutes": 285.5,
+    "smoke_test": false
+  },
+  "dataset": "Trained on 137 boards, validated on 40, tested on 22 unseen boards. Source: Roboflow 100 printed-circuit-board v4 (CC BY 4.0)."
+}

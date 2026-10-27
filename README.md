@@ -52,8 +52,22 @@ All scores are on held-out data.
 gives 72%). Repair-hours mean absolute error 0.43 h, against 1.24 h for guessing the average. Board age and
 fault type drive scrap decisions.
 
-**Part detector:** scored on 22 test boards never used for training or model selection. Full numbers are in
-`models/parts.json` and on the app's Models screen.
+**Part detector** (YOLOv8n, COCO-pretrained, fine-tuned for 138 epochs / 4.8 h on a 4-core CPU runner;
+scored on 22 test boards never used for training or model selection):
+
+| | mAP@50 | mAP@50-95 | Precision | Recall |
+|---|---|---|---|---|
+| All 7 part types | **0.349** | 0.184 | 0.418 | 0.371 |
+
+| IC | Switch | Connector | Resistor | Capacitor | Transistor/Diode | Inductor |
+|---|---|---|---|---|---|---|
+| 0.63 | 0.59 | 0.54 | 0.26 | 0.24 | 0.17 | 0.02 |
+
+Large, distinctive parts (ICs, switches, connectors) are detected well. Tiny SMD passives on dense boards are
+only a few pixels wide at 1024 px, and inductors have just 105 training examples, so those classes are weak.
+The best validation mAP@50 was 0.40 (epoch 118). One detection takes about 0.2 s on a laptop CPU.
+A first 4-hour run scored 0.286; most of that gap was an evaluation artefact. NMS hit its time limit and the
+300-box cap on dense boards, so detections were dropped. Both limits were raised for the final run.
 
 **OCR on the 50 demo photos:**
 
@@ -176,6 +190,6 @@ tests/                                                    pytest suite
 ## Limitations
 
 * Repair records and board histories are synthetic. With real job records, the same pipeline retrains unchanged.
-* The detector struggles with the tiniest SMD parts on very dense boards (more training images
-  or tiling would help). Rare classes (inductor, switch) have few examples.
+* The detector struggles with the tiniest SMD parts on very dense boards (tiling the photo, a larger model or a GPU
+  would help), and inductors have very few examples. It also sometimes boxes the yellow asset tag as a "connector".
 * Voice notes are English only. Vosk and Whisper both support Urdu, which is a natural next step.

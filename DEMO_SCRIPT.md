@@ -38,7 +38,9 @@ Everything runs on the device, and the app has no internet permission."
   explanations." Show the confusion matrix.
 - **Random Forest:** ROC AUC 0.82. Repair-hours error 0.43 h, against 1.24 h for guessing the average.
   "Board age and fault type drive scrap decisions, which matches how repair engineers think."
-- **Part detector:** mAP@50 per part type, scored on 22 unseen test boards.
+- **Part detector:** mAP@50 0.35 overall on 22 unseen test boards. ICs 0.63, switches 0.59 and connectors 0.54
+  are strong; tiny SMD resistors and capacitors are hard for a nano model on a CPU budget. "Fine-tuned from COCO
+  weights for 4.8 hours on GitHub's free CPU runners, no GPU."
 - "On the phone, the classical models run from exported weights. Automated tests check that the phone's
   answers match Python to six decimal places on 600 cases."
 
