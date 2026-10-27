@@ -76,8 +76,14 @@ def load_whisper():
 
 
 @st.cache_resource(show_spinner="Loading part detector...")
+def _load_detector(model_version):
+    return PartDetector() if model_version else None
+
+
 def load_detector():
-    return PartDetector() if PartDetector.available() else None
+    """Cached per model file, so a newly trained model is picked up without a restart."""
+    from detector_utils import MODEL
+    return _load_detector(MODEL.stat().st_mtime_ns if PartDetector.available() else 0)
 
 
 @st.cache_data
@@ -210,7 +216,7 @@ with bench:
     board = registry.set_index("serial").loc[serial] if serial else None
     if board is not None:
         m1, m2, m3 = st.columns([2, 1, 1])
-        m1.metric("Board type", f"{board['board_type']} rev {board['revision']}")
+        m1.metric(f"Board type (rev {board['revision']})", board["board_type"])
         m2.metric("Age", f"{board['age_years']} yrs")
         m3.metric("Previous repairs", int(board["previous_repairs"]))
         st.caption(f"Last recorded fault: {FAULT_NAMES[board['last_fault']]}")
