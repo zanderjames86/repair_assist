@@ -17,7 +17,7 @@ jobs:
       - uses: actions/setup-python@v5
         with: { python-version: "3.12", cache: pip }
       - name: Install Tesseract, espeak-ng, ffmpeg
-        run: tools/apt_install.sh tesseract-ocr espeak-ng ffmpeg
+        run: set -o pipefail; (lsb_release -ds; tools/apt_install.sh tesseract-ocr espeak-ng ffmpeg) 2>&1 | tee ci.log
         timeout-minutes: 15
       - run: pip install -r requirements.txt pytest pytest-timeout
       - name: Tests (data, ML models, OCR on demo photos, Android export parity, Streamlit app)
