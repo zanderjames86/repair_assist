@@ -44,11 +44,10 @@ jobs:
           du -sh android/app/src/main/assets/model-en-us
 
       - name: Synthesise test voice notes for the on-device speech test
-        timeout-minutes: 10
+        timeout-minutes: 15
         run: |
           set -o pipefail
-          (sudo apt-get update -qq || true) 2>&1 | tee -a ci.log
-          sudo apt-get install -y -qq espeak-ng ffmpeg < /dev/null 2>&1 | tee -a ci.log
+          tools/apt_install.sh espeak-ng ffmpeg 2>&1 | tee -a ci.log
           python3 tools/make_speech_wavs.py 2>&1 | tee -a ci.log
       - name: JVM unit tests (model parity, OCR parser, YOLO decoding)
         run: set -o pipefail; gradle -p android testDebugUnitTest --stacktrace 2>&1 | tee -a ci.log

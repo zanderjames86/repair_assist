@@ -16,8 +16,9 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with: { python-version: "3.12", cache: pip }
-      - run: (sudo apt-get update -qq || true) && sudo apt-get install -y -qq tesseract-ocr espeak-ng ffmpeg < /dev/null
-        timeout-minutes: 10
+      - name: Install Tesseract, espeak-ng, ffmpeg
+        run: tools/apt_install.sh tesseract-ocr espeak-ng ffmpeg
+        timeout-minutes: 15
       - run: pip install -r requirements.txt pytest pytest-timeout
       - name: Tests (data, ML models, OCR on demo photos, Android export parity, Streamlit app)
         run: set -o pipefail; pytest -v --timeout=600 --junitxml=pytest-report.xml 2>&1 | tee ci.log
@@ -25,6 +26,7 @@ jobs:
         if: failure()
         run: |
           mkdir -p /tmp/out && cp ci.log /tmp/out/ 2>/dev/null || true
+          echo "run ${{ github.run_id }}" > /tmp/out/run.txt
           cd /tmp/out && git init -q && git checkout -q -b ci-logs
           git -c user.name=ci -c user.email=ci@localhost add -A && git -c user.name=ci -c user.email=ci@localhost commit -qm "logs ${{ github.workflow }} ${{ github.run_id }} ${{ github.job }}"
           git push -f "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}" ci-logs:ci-logs-${{ github.job }}
